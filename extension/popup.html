@@ -3,34 +3,40 @@
   <head>
     <title>ConsentChain</title>
     <style>
-      body { font-family: sans-serif; width: 250px; padding: 15px; }
-      h3 { text-align: center; margin-top: 0; }
-      .view { display: none; } /* Hide all views by default */
-      form { display: flex; flex-direction: column; gap: 10px; }
-      input, button { padding: 8px; font-size: 14px; }
-      button { cursor: pointer; background-color: #007bff; color: white; border: none; }
-      #signOutBtn { background-color: #dc3545; margin-top: 5px; }
-      #status { margin-top: 10px; font-size: 12px; color: red; }
+      body {
+        font-family: sans-serif;
+        width: 200px;
+        padding: 15px;
+        text-align: center;
+      }
+      h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+      }
+      #status {
+        margin-top: 10px;
+        font-size: 12px;
+        color: green;
+      }
     </style>
   </head>
   <body>
     <h3>ConsentChain Tracker</h3>
 
-    <div id="loginView" class="view">
-      <form id="loginForm">
-        <input type="text" id="username" placeholder="Username" required />
-        <input type="password" id="password" placeholder="Password" required />
-        <button type="submit">Sign In</button>
-      </form>
-    </div>
+    <button id="dashboardBtn">Go to Dashboard</button>
 
-    <div id="loggedInView" class="view">
-      <p>Logged in as: <strong id="loggedInUser"></strong></p>
-      <button id="dashboardBtn">Open Dashboard</button>
-      <button id="signOutBtn">Sign Out</button>
-    </div>
-
-    <div id="status"></div>
+    <div id="status">Active (Capturing Clicks)</div>
+    
     <script type="module" src="./dist/popup.js"></script>
   </body>
 </html>
