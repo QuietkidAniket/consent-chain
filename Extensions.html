@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<!-- saved from url=(0020)chrome://extensions/ -->
+<html dir="ltr" lang="en" class="in-dev-mode focus-outline-visible"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="color-scheme" content="light dark">
+  <title>Extensions</title>
+  <!--<base href="chrome://extensions">--><base href=".">
+  <link rel="stylesheet" href="chrome://resources/css/md_colors.css">
+  <style>
+    html {
+      /* Remove 300ms delay for 'click' event, when using touch interface. */
+      touch-action: manipulation;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      html {
+        background: var(--md-background-color);
+      }
+    }
+
+    /* Mimics the developer mode toolbar until the real one loads. Note:
+     * .in-dev-mode is applied by i18n{loadTimeClasses}. */
+    html.loading.in-dev-mode body::before {
+      box-sizing: border-box;
+      content: '';
+      display: block;
+      border-bottom: var(--md-toolbar-border);
+      height: calc(var(--md-toolbar-height) + 58px);
+    }
+
+    html,
+    body {
+      height: 100%;
+      line-height: 154%;
+      margin: 0;
+      overflow: hidden;
+      width: 100%;
+    }
+  </style>
+  <script type="module" src="chrome://extensions/extensions.js"></script>
+<cr-iconset name="cr20" size="20"><template shadowrootmode="open"><!---->
+<svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 0 20 20">
+ </svg>
+<slot></slot>
+</template>
+  <svg>
+    <defs>
+      <!--
+      Keep these in sorted order by id="".
+      -->
+      <g id="block">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM2 10C2 5.58 5.58 2 10 2C11.85 2 13.55 2.63 14.9 3.69L3.69 14.9C2.63 13.55 2 11.85 2 10ZM5.1 16.31C6.45 17.37 8.15 18 10 18C14.42 18 18 14.42 18 10C18 8.15 17.37 6.45 16.31 5.1L5.1 16.31Z">
+        </path>
+      </g>
+      <g id="cloud-off">
+        <path d="M16 18.125L13.875 16H5C3.88889 16 2.94444 15.6111 2.16667 14.8333C1.38889 14.0556 1 13.1111 1 12C1 10.9444 1.36111 10.0347 2.08333 9.27083C2.80556 8.50694 3.6875 8.09028 4.72917 8.02083C4.77083 7.86805 4.8125 7.72222 4.85417 7.58333C4.90972 7.44444 4.97222 7.30555 5.04167 7.16667L1.875 4L2.9375 2.9375L17.0625 17.0625L16 18.125ZM5 14.5H12.375L6.20833 8.33333C6.15278 8.51389 6.09722 8.70139 6.04167 8.89583C6 9.07639 5.95139 9.25694 5.89583 9.4375L4.83333 9.52083C4.16667 9.57639 3.61111 9.84028 3.16667 10.3125C2.72222 10.7708 2.5 11.3333 2.5 12C2.5 12.6944 2.74306 13.2847 3.22917 13.7708C3.71528 14.2569 4.30556 14.5 5 14.5ZM17.5 15.375L16.3958 14.2917C16.7153 14.125 16.9792 13.8819 17.1875 13.5625C17.3958 13.2431 17.5 12.8889 17.5 12.5C17.5 11.9444 17.3056 11.4722 16.9167 11.0833C16.5278 10.6944 16.0556 10.5 15.5 10.5H14.125L14 9.14583C13.9028 8.11806 13.4722 7.25694 12.7083 6.5625C11.9444 5.85417 11.0417 5.5 10 5.5C9.65278 5.5 9.31944 5.54167 9 5.625C8.69444 5.70833 8.39583 5.82639 8.10417 5.97917L7.02083 4.89583C7.46528 4.61806 7.93056 4.40278 8.41667 4.25C8.91667 4.08333 9.44444 4 10 4C11.4306 4 12.6736 4.48611 13.7292 5.45833C14.7847 6.41667 15.375 7.59722 15.5 9C16.4722 9 17.2986 9.34028 17.9792 10.0208C18.6597 10.7014 19 11.5278 19 12.5C19 13.0972 18.8611 13.6458 18.5833 14.1458C18.3194 14.6458 17.9583 15.0556 17.5 15.375Z">
+        </path>
+      </g>
+      <g id="delete">
+        <path d="M 5.832031 17.5 C 5.375 17.5 4.984375 17.335938 4.65625 17.011719 C 4.328125 16.683594 4.167969 16.292969 4.167969 15.832031 L 4.167969 5 L 3.332031 5 L 3.332031 3.332031 L 7.5 3.332031 L 7.5 2.5 L 12.5 2.5 L 12.5 3.332031 L 16.667969 3.332031 L 16.667969 5 L 15.832031 5 L 15.832031 15.832031 C 15.832031 16.292969 15.671875 16.683594 15.34375 17.011719 C 15.015625 17.335938 14.625 17.5 14.167969 17.5 Z M 14.167969 5 L 5.832031 5 L 5.832031 15.832031 L 14.167969 15.832031 Z M 7.5 14.167969 L 9.167969 14.167969 L 9.167969 6.667969 L 7.5 6.667969 Z M 10.832031 14.167969 L 12.5 14.167969 L 12.5 6.667969 L 10.832031 6.667969 Z M 5.832031 5 L 5.832031 15.832031 Z M 5.832031 5 ">
+        </path>
+      </g>
+      <g id="domain" viewBox="0 -960 960 960">
+        <path d="M96-144v-672h384v144h384v528H96Zm72-72h72v-72h-72v72Zm0-152h72v-72h-72v72Zm0-152h72v-72h-72v72Zm0-152h72v-72h-72v72Zm168 456h72v-72h-72v72Zm0-152h72v-72h-72v72Zm0-152h72v-72h-72v72Zm0-152h72v-72h-72v72Zm144 456h312v-384H480v80h72v72h-72v80h72v72h-72v80Zm168-232v-72h72v72h-72Zm0 152v-72h72v72h-72Z"></path>
+      </g>
+      <g id="kite">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.6327 8.00094L10.3199 2L16 8.00094L10.1848 16.8673C10.0995 16.9873 10.0071 17.1074 9.90047 17.2199C9.42417 17.7225 8.79147 18 8.11611 18C7.44076 18 6.80806 17.7225 6.33175 17.2199C5.85545 16.7173 5.59242 16.0497 5.59242 15.3371C5.59242 14.977 5.46445 14.647 5.22275 14.3919C4.98104 14.1369 4.66825 14.0019 4.32701 14.0019H4V12.6667H4.32701C5.00237 12.6667 5.63507 12.9442 6.11137 13.4468C6.58768 13.9494 6.85071 14.617 6.85071 15.3296C6.85071 15.6896 6.97867 16.0197 7.22038 16.2747C7.46209 16.5298 7.77488 16.6648 8.11611 16.6648C8.45735 16.6648 8.77014 16.5223 9.01185 16.2747C9.02396 16.2601 9.03607 16.246 9.04808 16.2319C9.08541 16.1883 9.12176 16.1458 9.15403 16.0947L9.55213 15.4946L4.6327 8.00094ZM10.3199 13.9371L6.53802 8.17116L10.3199 4.1814L14.0963 8.17103L10.3199 13.9371Z">
+        </path>
+      </g>
+      <g id="menu">
+        <path d="M2 4h16v2H2zM2 9h16v2H2zM2 14h16v2H2z"></path>
+      </g>
+      <g id="password">
+        <path d="M5.833 11.667c.458 0 .847-.16 1.167-.479.333-.333.5-.729.5-1.188s-.167-.847-.5-1.167a1.555 1.555 0 0 0-1.167-.5c-.458 0-.854.167-1.188.5A1.588 1.588 0 0 0 4.166 10c0 .458.16.854.479 1.188.333.319.729.479 1.188.479Zm0 3.333c-1.389 0-2.569-.486-3.542-1.458C1.319 12.569.833 11.389.833 10c0-1.389.486-2.569 1.458-3.542C3.264 5.486 4.444 5 5.833 5c.944 0 1.813.243 2.604.729a4.752 4.752 0 0 1 1.833 1.979h7.23c.458 0 .847.167 1.167.5.333.319.5.708.5 1.167v3.958c0 .458-.167.854-.5 1.188A1.588 1.588 0 0 1 17.5 15h-3.75a1.658 1.658 0 0 1-1.188-.479 1.658 1.658 0 0 1-.479-1.188v-1.042H10.27a4.59 4.59 0 0 1-1.813 2A5.1 5.1 0 0 1 5.833 15Zm3.292-4.375h4.625v2.708H15v-1.042a.592.592 0 0 1 .167-.438.623.623 0 0 1 .458-.188c.181 0 .327.063.438.188a.558.558 0 0 1 .188.438v1.042H17.5V9.375H9.125a3.312 3.312 0 0 0-1.167-1.938 3.203 3.203 0 0 0-2.125-.77 3.21 3.21 0 0 0-2.354.979C2.827 8.298 2.5 9.083 2.5 10s.327 1.702.979 2.354a3.21 3.21 0 0 0 2.354.979c.806 0 1.514-.25 2.125-.75.611-.514 1-1.167 1.167-1.958Z"></path>
+      </g>
+      
+  </defs></svg>
+</cr-iconset><cr-iconset name="cr" size="24"><template shadowrootmode="open"><!---->
+<svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 0 24 24">
+ </svg>
+<slot></slot>
+</template>
+  <svg>
+    <defs>
+      <!--
+      These icons are copied from Polymer's iron-icons and kept in sorted order.
+      -->
+      <g id="add">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+      </g>
+      <g id="arrow-back">
+        <path d="m7.824 13 5.602 5.602L12 20l-8-8 8-8 1.426 1.398L7.824 11H20v2Zm0 0">
+        </path>
+      </g>
+      <g id="arrow-drop-up">
+        <path d="M7 14l5-5 5 5z"></path>
+      </g>
+      <g id="arrow-drop-down">
+        <path d="M7 10l5 5 5-5z"></path>
+      </g>
+      <g id="arrow-forward">
+        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z">
+        </path>
+      </g>
+      <g id="arrow-right">
+        <path d="M10 7l5 5-5 5z"></path>
+      </g>
+      <g id="cancel">
+        <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z">
+        </path>
+      </g>
+      <g id="check">
+        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
+      </g>
+      <g id="check-circle" viewBox="0 -960 960 960">
+        <path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"></path>
+      </g>
+      <g id="chevron-left">
+        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+      </g>
+      <g id="chevron-right">
+        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+      </g>
+      <g id="clear">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
+        </path>
+      </g>
+      <g id="chrome-product" viewBox="0 -960 960 960">
+        <path d="M336-479q0 60 42 102t102 42q60 0 102-42t42-102q0-60-42-102t-102-42q-60 0-102 42t-42 102Zm144 216q11 0 22.5-.5T525-267L427-99q-144-16-237.5-125T96-479q0-43 9.5-84.5T134-645l160 274q28 51 78 79.5T480-263Zm0-432q-71 0-126.5 42T276-545l-98-170q53-71 132.5-109.5T480-863q95 0 179 45t138 123H480Zm356 72q15 35 21.5 71t6.5 73q0 155-100 260.5T509-96l157-275q14-25 22-52t8-56q0-40-15-77t-41-67h196Z">
+        </path>
+      </g>
+      <g id="close">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
+        </path>
+      </g>
+      <g id="computer">
+        <path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z">
+        </path>
+      </g>
+      <g id="create">
+        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z">
+        </path>
+      </g>
+      <g id="delete" viewBox="0 -960 960 960">
+        <path d="M309.37-135.87q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.5h-53.5v-83H378.5v-53.5h202.52v53.5h206.11v83h-53.5v474.07q0 35.21-24.26 59.32t-58.74 24.11H309.37Zm341.26-557.5H309.37v474.5h341.26v-474.5ZM379.7-288.24h77.5v-336h-77.5v336Zm123.1 0h77.5v-336h-77.5v336ZM309.37-693.37v474.5-474.5Z">
+        </path>
+      </g>
+      <g id="domain">
+        <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z">
+        </path>
+      </g>
+      <!-- source: https://fonts.google.com/icons?selected=Material+Symbols+Outlined:family_link:FILL@0;wght@0;GRAD@0;opsz@24&icon.size=24&icon.color=%23e8eaed -->
+      <g id="kite" viewBox="0 -960 960 960">
+        <path d="M390-40q-51 0-90.5-30.5T246-149q-6-23-25-37t-43-14q-16 0-30 6.5T124-175l-61-51q21-26 51.5-40t63.5-14q51 0 91 30t54 79q6 23 25 37t42 14q19 0 34-10t26-25l1-2-276-381q-8-11-11.5-23t-3.5-24q0-16 6-30.5t18-26.5l260-255q11-11 26-17t30-6q15 0 30 6t26 17l260 255q12 12 18 26.5t6 30.5q0 12-3.5 24T825-538L500-88q-18 25-48 36.5T390-40Zm110-185 260-360-260-255-259 256 259 359Zm1-308Z"></path>
+        
+      </g>
+      <g id="error">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z">
+        </path>
+      </g>
+      <g id="error-outline">
+        <path d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z">
+        </path>
+      </g>
+      <g id="expand-less">
+        <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path>
+      </g>
+      <g id="expand-more">
+        <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>
+      </g>
+      <g id="extension">
+        <path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z">
+        </path>
+      </g>
+      <g id="file-download" viewBox="0 -960 960 960">
+        <path d="M480-336 288-528l51-51 105 105v-342h72v342l105-105 51 51-192 192ZM263.72-192Q234-192 213-213.15T192-264v-72h72v72h432v-72h72v72q0 29.7-21.16 50.85Q725.68-192 695.96-192H263.72Z"></path>
+      </g>
+      <g id="fullscreen">
+        <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z">
+        </path>
+      </g>
+      <g id="group">
+        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z">
+        </path>
+      </g>
+      <g id="help-outline">
+        <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z">
+        </path>
+      </g>
+      <g id="history">
+        <path d="M12.945312 22.75 C 10.320312 22.75 8.074219 21.839844 6.207031 20.019531 C 4.335938 18.199219 3.359375 15.972656 3.269531 13.34375 L 5.089844 13.34375 C 5.175781 15.472656 5.972656 17.273438 7.480469 18.742188 C 8.988281 20.210938 10.808594 20.945312 12.945312 20.945312 C 15.179688 20.945312 17.070312 20.164062 18.621094 18.601562 C 20.167969 17.039062 20.945312 15.144531 20.945312 12.910156 C 20.945312 10.714844 20.164062 8.855469 18.601562 7.335938 C 17.039062 5.816406 15.15625 5.054688 12.945312 5.054688 C 11.710938 5.054688 10.554688 5.339844 9.480469 5.902344 C 8.402344 6.46875 7.476562 7.226562 6.699219 8.179688 L 9.585938 8.179688 L 9.585938 9.984375 L 3.648438 9.984375 L 3.648438 4.0625 L 5.453125 4.0625 L 5.453125 6.824219 C 6.386719 5.707031 7.503906 4.828125 8.804688 4.199219 C 10.109375 3.566406 11.488281 3.25 12.945312 3.25 C 14.300781 3.25 15.570312 3.503906 16.761719 4.011719 C 17.949219 4.519531 18.988281 5.214844 19.875 6.089844 C 20.761719 6.964844 21.464844 7.992188 21.976562 9.167969 C 22.492188 10.34375 22.75 11.609375 22.75 12.964844 C 22.75 14.316406 22.492188 15.589844 21.976562 16.777344 C 21.464844 17.964844 20.761719 19.003906 19.875 19.882812 C 18.988281 20.765625 17.949219 21.464844 16.761719 21.976562 C 15.570312 22.492188 14.300781 22.75 12.945312 22.75 Z M 16.269531 17.460938 L 12.117188 13.34375 L 12.117188 7.527344 L 13.921875 7.527344 L 13.921875 12.601562 L 17.550781 16.179688 Z M 16.269531 17.460938">
+        </path>
+      </g>
+      <g id="info">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z">
+        </path>
+      </g>
+      <g id="info-outline">
+        <path d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z">
+        </path>
+      </g>
+      <g id="insert-drive-file">
+        <path d="M6 2c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6H6zm7 7V3.5L18.5 9H13z">
+        </path>
+      </g>
+      <g id="location-on">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z">
+        </path>
+      </g>
+      <g id="mic">
+        <path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z">
+        </path>
+      </g>
+      <g id="more-vert">
+        <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z">
+        </path>
+      </g>
+      <g id="open-in-new" viewBox="0 -960 960 960">
+        <path d="M216-144q-29.7 0-50.85-21.15Q144-186.3 144-216v-528q0-29.7 21.15-50.85Q186.3-816 216-816h264v72H216v528h528v-264h72v264q0 29.7-21.15 50.85Q773.7-144 744-144H216Zm171-192-51-51 357-357H576v-72h240v240h-72v-117L387-336Z">
+        </path>
+      </g>
+      <g id="person">
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z">
+        </path>
+      </g>
+      <g id="phonelink">
+        <path d="M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4V6zm19 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z">
+        </path>
+      </g>
+      <g id="print">
+        <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z">
+        </path>
+      </g>
+      <g id="schedule">
+        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z">
+        </path>
+      </g>
+      <g id="search">
+        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+        </path>
+      </g>
+      <g id="security">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z">
+        </path>
+      </g>
+      <!-- The <g> IDs are exposed as global variables in Vulcanized mode, which
+        conflicts with the "settings" namespace of MD Settings. Using an "_icon"
+        suffix prevents the naming conflict. -->
+      <g id="settings_icon">
+        <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z">
+        </path>
+      </g>
+      <g id="star">
+        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z">
+        </path>
+      </g>
+      <g id="sync" viewBox="0 -960 960 960">
+        <path d="M216-192v-72h74q-45-40-71.5-95.5T192-480q0-101 61-177.5T408-758v75q-63 23-103.5 77.5T264-480q0 48 19.5 89t52.5 70v-63h72v192H216Zm336-10v-75q63-23 103.5-77.5T696-480q0-48-19.5-89T624-639v63h-72v-192h192v72h-74q45 40 71.5 95.5T768-480q0 101-61 177.5T552-202Z">
+        </path>
+      </g>
+      <g id="thumbs-down">
+        <path d="M6 3h11v13l-7 7-1.25-1.25a1.454 1.454 0 0 1-.3-.475c-.067-.2-.1-.392-.1-.575v-.35L9.45 16H3c-.533 0-1-.2-1.4-.6-.4-.4-.6-.867-.6-1.4v-2c0-.117.017-.242.05-.375s.067-.258.1-.375l3-7.05c.15-.333.4-.617.75-.85C5.25 3.117 5.617 3 6 3Zm9 2H6l-3 7v2h9l-1.35 5.5L15 15.15V5Zm0 10.15V5v10.15Zm2 .85v-2h3V5h-3V3h5v13h-5Z">
+        </path>
+      </g>
+      <g id="thumbs-down-filled">
+        <path d="M6 3h10v13l-7 7-1.25-1.25a1.336 1.336 0 0 1-.29-.477 1.66 1.66 0 0 1-.108-.574v-.347L8.449 16H3c-.535 0-1-.2-1.398-.602C1.199 15 1 14.535 1 14v-2c0-.117.012-.242.04-.375.022-.133.062-.258.108-.375l3-7.05c.153-.333.403-.618.75-.848A1.957 1.957 0 0 1 6 3Zm12 13V3h4v13Zm0 0">
+        </path>
+      </g>
+      <g id="thumbs-up">
+        <path d="M18 21H7V8l7-7 1.25 1.25c.117.117.208.275.275.475.083.2.125.392.125.575v.35L14.55 8H21c.533 0 1 .2 1.4.6.4.4.6.867.6 1.4v2c0 .117-.017.242-.05.375s-.067.258-.1.375l-3 7.05c-.15.333-.4.617-.75.85-.35.233-.717.35-1.1.35Zm-9-2h9l3-7v-2h-9l1.35-5.5L9 8.85V19ZM9 8.85V19 8.85ZM7 8v2H4v9h3v2H2V8h5Z">
+        </path>
+      </g>
+      <g id="thumbs-up-filled">
+        <path d="M18 21H8V8l7-7 1.25 1.25c.117.117.21.273.29.477.073.199.108.39.108.574v.347L15.551 8H21c.535 0 1 .2 1.398.602C22.801 9 23 9.465 23 10v2c0 .117-.012.242-.04.375a1.897 1.897 0 0 1-.108.375l-3 7.05a2.037 2.037 0 0 1-.75.848A1.957 1.957 0 0 1 18 21ZM6 8v13H2V8Zm0 0">
+      </path></g>
+      <g id="videocam" viewBox="0 -960 960 960">
+        <path d="M216-192q-29 0-50.5-21.5T144-264v-432q0-29.7 21.5-50.85Q187-768 216-768h432q29.7 0 50.85 21.15Q720-725.7 720-696v168l144-144v384L720-432v168q0 29-21.15 50.5T648-192H216Zm0-72h432v-432H216v432Zm0 0v-432 432Z">
+        </path>
+      </g>
+      <g id="warning">
+        <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"></path>
+      </g>
+    </defs>
+  </svg>
+</cr-iconset><cr-iconset name="extensions-icons" size="24"><template shadowrootmode="open"><!---->
+<svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 0 24 24">
+ </svg>
+<slot></slot>
+</template>
+<svg>
+<defs>
+  <!-- Custom SVG (bettes). -->
+  <g id="unpacked">
+    <path class="cls-1" fill="none" d="M0,0H24V24H0V0Z"></path>
+    <circle cx="9" cy="12" r="1"></circle>
+    <path d="M20,5H4A2,2,0,0,0,2,7V17a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V7A2,2,0,0,0,20,5ZM9,17a5,5,0,1,1,5-5A5,5,0,0,1,9,17Zm11,1a1,1,0,1,1,1-1A1,1,0,0,1,20,18ZM20,8a1,1,0,1,1,1-1A1,1,0,0,1,20,8Z"></path>
+  </g>
+
+  <!-- Material Design icons. -->
+  <!-- Material icon name: 'gpp_maybe' -->
+  <g id="safebrowsing_warning">
+    <path d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M12 4.24l6 3v4.1c0 3.9-2.55 7.5-6 8.59-3.45-1.09-6-4.7-6-8.59v-4.1l6-3M12 2L4 6v5.33c0 4.93 3.41 9.55 8 10.67 4.59-1.12 8-5.73 8-10.67V6l-8-4zm-1 13h2v2h-2v-2zm2-7h-2v5h2V8z"></path>
+  </g>
+
+  <!-- Copied from iron-icons. -->
+  <g id="input"><path d="M21 3.01H3c-1.1 0-2 .9-2 2V9h2V4.99h18v14.03H3V15H1v4.01c0 1.1.9 1.98 2 1.98h18c1.1 0 2-.88 2-1.98v-14c0-1.11-.9-2-2-2zM11 16l4-4-4-4v3H1v2h10v3z"></path></g>
+  <g id="business"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"></path></g>
+
+  <!-- Icons for the extensions page sidebar. -->
+  <g id="my_extensions" viewBox="0 -960 960 960"><path d="M216-135.869q-33.287 0-56.709-23.422-23.422-23.422-23.422-56.709v-172.304q37.609-2 63.218-28.424 25.608-26.424 25.608-63.272t-25.608-63.272q-25.609-26.424-63.218-28.424V-744q0-33.287 23.422-56.709 23.422-23.422 56.709-23.422h161.065q2.631-40.956 31.96-69.315 29.329-28.359 70.75-28.359t70.975 28.199q29.554 28.199 32.185 69.475H744q33.287 0 56.709 23.422 23.422 23.422 23.422 56.709v161.065q40.956 2.631 69.315 31.96 28.359 29.329 28.359 70.75t-28.199 70.975q-28.199 29.554-69.475 32.185V-216q0 33.287-23.422 56.709-23.422 23.422-56.709 23.422H216Zm2.87-83.001h522.26v-522.26H218.87v108.652q42.13 22.63 65.597 63.772 23.468 41.141 23.468 88.706 0 49.01-23.468 90.168Q261-348.674 218.87-327.283v108.413ZM480-480Z"></path></g>
+  <g id="site_permissions" viewBox="0 -960 960 960"><path d="M454.087-136.587V-384H533.5v84h288v79.413h-288v84h-79.413Zm-315.587-84V-300h247.413v79.413H138.5Zm144-135.826v-84h-144v-79.174h144v-84h79.413v247.174H282.5Zm147.587-84v-79.174H821.5v79.174H430.087Zm144-135.587v-247.413H653.5v84h168V-660h-168v84h-79.413ZM138.5-660v-79.413h391.413V-660H138.5Z"></path></g>
+  <g id="keyboard_shortcuts" viewBox="0 -960 960 960"><path d="M168-229q-34.483 0-58.741-24.259-24.26-24.258-24.26-58.741v-336q0-34.483 24.26-58.741Q133.517-731 168-731h624q34.483 0 58.741 24.259Q875-682.483 875-648v336q0 34.483-24.259 58.741Q826.483-229 792-229H168Zm0-83h624v-336H168v336Zm168-24h288v-72H336v72Zm-96-120h72v-72h-72v72Zm102 0h72v-72h-72v72Zm102 0h72v-72h-72v72Zm102 0h72v-72h-72v72Zm102 0h72v-72h-72v72Zm-408-96h72v-72h-72v72Zm102 0h72v-72h-72v72Zm102 0h72v-72h-72v72Zm102 0h72v-72h-72v72Zm102 0h72v-72h-72v72ZM168-312v-336 336Z"></path></g>
+  <g id="web_store" enable-background="new 0 0 192 192" height="24px" viewBox="0 0 192 192" width="24px"><path fill="none" d="M0 0h192v192H0z"></path><path fill="#F1F3F4" d="M172 28H20v121.63c0 5.72 4.64 10.37 10.37 10.37h131.27c5.72 0 10.37-4.64 10.37-10.37V28z"></path><path fill="#F1F3F4" d="M172 28H20v121.63c0 5.72 4.64 10.37 10.37 10.37h131.27c5.72 0 10.37-4.64 10.37-10.37V28z"></path><path fill="#E8EAED" d="M20 28h152v66.35H20z"></path><path fill="#FFF" d="M113.27 56.34H78.73c-3.82 0-6.91-3.09-6.91-6.91 0-3.82 3.09-6.91 6.91-6.91h34.54c3.82 0 6.91 3.09 6.91 6.91 0 3.81-3.09 6.91-6.91 6.91z"></path><defs><path id="a" d="M172 28H20v121.63c0 5.72 4.64 10.37 10.37 10.37h131.27c5.72 0 10.37-4.64 10.37-10.37V28z"></path></defs><clippath id="b"><use xlink:href="#a" overflow="visible"></use></clippath><g clip-path="url(#b)"><lineargradient id="c" x1="39.161" x2="152.841" y1="125.013" y2="125.013" gradientUnits="userSpaceOnUse"><stop offset="0" style="stop-color:#d93025"></stop><stop offset="1" style="stop-color:#ea4335"></stop></lineargradient><path fill="url(#c)" d="m39.16 116.8 9.05 27.61 19.38 21.63L96 116.81l56.84-.01C141.49 97.18 120.29 83.99 96 83.99c-24.29 0-45.49 13.19-56.84 32.81z"></path><lineargradient id="d" x1="-3.897" x2="109.806" y1="36.608" y2="36.608" gradientTransform="rotate(-120 100 93.002)" gradientUnits="userSpaceOnUse"><stop offset="0" style="stop-color:#1e8e3e"></stop><stop offset="1" style="stop-color:#34a853"></stop></lineargradient><path fill="url(#d)" d="m95.99 215.28 19.38-21.64 9.04-27.6H67.58L39.16 116.8c-11.31 19.64-12.14 44.61.01 65.65 12.14 21.04 34.17 32.81 56.82 32.83z"></path><lineargradient id="e" x1="96.791" x2="210.494" y1="8.387" y2="8.387" gradientTransform="rotate(120 88.856 76)" gradientUnits="userSpaceOnUse"><stop offset="0" style="stop-color:#fbbc04"></stop><stop offset="1" style="stop-color:#fcc934"></stop></lineargradient><path fill="url(#e)" d="M152.84 116.81H96l28.42 49.23L96 215.28c22.66-.02 44.69-11.79 56.83-32.83 12.15-21.04 11.32-46 .01-65.64z"></path><ellipse cx="96" cy="149.63" fill="#F1F3F4" rx="32.81" ry="32.82"></ellipse><ellipse cx="96" cy="149.63" fill="#1A73E8" rx="26.66" ry="26.67"></ellipse></g><path fill="#BDC1C6" d="M20 94.35h152v.86H20zM20 93.48h152v.86H20z" opacity=".1"></path></g>
+
+  <!-- Icons for the mv2 deprecation panel. -->
+  <g id="extension_off" viewBox="0 -960 960 960"><path d="M791-55 55-791l57-57 736 736-57 57Zm9-219-80-80v-366H354l-80-80h86q0-42 29-71t71-29q42 0 71 29t29 71h160q33 0 56.5 23.5T800-720v160q42 0 71 29t29 71q0 42-29 71t-71 29v86ZM537-537ZM423-423ZM200-120q-33 0-56.5-23.5T120-200v-152q48 0 84-30.5t36-77.5q0-47-36-77.5T120-568v-152q0-17 6-31.5t17-25.5l57 57v88q54 20 87 67t33 105q0 57-33 104t-87 68v88h520l57 57q-11 11-25.5 17t-31.5 6H200Z"></path></g>
+
+  <!-- Icon for uploading an extension to the user's account. -->
+  <g id="extension_cloud_upload" viewBox="0 -960 960 960"><path d="M240-192q-80 0-136-56.5T48-385q0-76 51.5-131.5T227-576q23.43-85.75 93.7-138.87Q390.98-768 480-768q107 0 185.5 68.5T744-528q70 0 119 49t49 118q0 70.42-49 119.71Q814-192 744-192H516q-29.7 0-50.85-21.15Q444-234.3 444-264v-174l-57 57-51-51 144-144 144 144-51 51-57-57v174h228q40.32 0 68.16-27.77 27.84-27.78 27.84-68Q840-400 812.16-428q-27.84-28-68.16-28h-72v-72q0-73-57.5-120.5t-135-47.5Q402-696 348-639.5T283-504h-43q-49.71 0-84.86 35.2-35.14 35.2-35.14 85t35.14 84.8q35.15 35 84.86 35h132v72H240Zm240-246Z"></path></g>
+</defs>
+</svg>
+</cr-iconset></head>
+<body>
+  <extensions-manager><template shadowrootmode="open"><!----><!--_html_template_start_-->
+<extensions-drop-overlay hidden="" drag-enabled=""><template shadowrootmode="open"><!----><!--_html_template_start_-->
+<div id="container">
+  <cr-icon icon="cr:extension"><template shadowrootmode="open"><svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 0 24 24" class="cr-iconset-svg-icon_">
+ <g>
+        <path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z">
+        </path>
+      </g></svg><!----></template></cr-icon>
+  <div id="text">Drop to install</div>
+</div>
+<!--_html_template_end_--></template>
+</extensions-drop-overlay>
+<extensions-toolbar id="toolbar" in-dev-mode="" role="banner" can-load-unpacked=""><template shadowrootmode="open"><!----><!--_html_template_start_-->
+<cr-toolbar id="toolbar" page-name="Extensions" search-prompt="Search extensions" clear-label="Clear search" autofocus="" menu-label="Main menu" narrow-threshold="1000"><template shadowrootmode="open"><!---->
+<div id="leftContent">
+  <div id="leftSpacer">
+    <!--?lit$790478298$-->
+    <slot name="product-logo">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="//resources/images/chrome_logo_dark.svg">
+        <img id="product-logo" srcset="chrome://theme/current-channel-logo@1x 1x,
+                    chrome://theme/current-channel-logo@2x 2x" role="presentation">
+      </picture>
+    </slot>
+    <h1><!--?lit$790478298$-->Extensions</h1>
+  </div>
+</div>
+
+<div id="centeredContent">
+  <cr-toolbar-search-field id="search" label="Search extensions" clear-label="Clear search" autofocus="" icon-override="" input-aria-description=""><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<div id="stateBackground"></div>
+<div id="content">
+  <!--?lit$790478298$-->
+    <cr-icon-button id="icon" suppress-rtl-flip="" iron-icon="cr:search" title="Search extensions" tabindex="-1" aria-hidden="true" role="button" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="icon">
+  <div id="maskedImage"></div>
+<cr-icon><template shadowrootmode="open"><svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 0 24 24" class="cr-iconset-svg-icon_" role="none">
+ <g>
+        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+        </path>
+      </g></svg><!----></template></cr-icon></div></template>
+  </cr-icon-button>
+  <div id="searchTerm">
+    <label id="prompt" for="searchInput" aria-hidden="true">
+      <!--?lit$790478298$-->Search extensions
+    </label>
+    <input id="searchInput" aria-labelledby="prompt" autocapitalize="off" autocomplete="off" type="search" spellcheck="false" aria-description="" autofocus="">
+  </div>
+  <!--?lit$790478298$-->
+</div></template>
+  </cr-toolbar-search-field>
+</div>
+
+<div id="rightContent">
+  <div id="rightSpacer">
+    <slot></slot>
+  </div>
+</div></template>
+  <div class="more-actions">
+    <span id="devModeLabel">Developer mode</span>
+    <cr-tooltip-icon hidden="" tooltip-text="This setting is managed by your administrator." icon-class="cr20:domain" icon-aria-label="This setting is managed by your administrator."><template shadowrootmode="open"><!---->
+<cr-icon id="indicator" tabindex="0" aria-describedby="tooltip" role="img" aria-label="This setting is managed by your administrator." icon="cr20:domain"><template shadowrootmode="open"><svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 -960 960 960" class="cr-iconset-svg-icon_">
+ <g viewBox="0 -960 960 960">
+        <path d="M96-144v-672h384v144h384v528H96Zm72-72h72v-72h-72v72Zm0-152h72v-72h-72v72Zm0-152h72v-72h-72v72Zm0-152h72v-72h-72v72Zm168 456h72v-72h-72v72Zm0-152h72v-72h-72v72Zm0-152h72v-72h-72v72Zm0-152h72v-72h-72v72Zm144 456h312v-384H480v80h72v72h-72v80h72v72h-72v80Zm168-232v-72h72v72h-72Zm0 152v-72h72v72h-72Z"></path>
+      </g></svg><!----></template>
+</cr-icon>
+<cr-tooltip id="tooltip" for="indicator" fit-to-visible-bounds="" part="tooltip" position="top" style="--paper-tooltip-delay-in: 500ms; --cr-tooltip-offset: 14px;"><template shadowrootmode="open"><!---->
+    <div id="tooltip" hidden="" part="tooltip">
+      <slot></slot>
+    </div>
+    <div id="tooltipOffsetFiller"></div></template>
+  <slot name="tooltip-text"><!--?lit$790478298$-->This setting is managed by your administrator.</slot>
+</cr-tooltip></template>
+    </cr-tooltip-icon>
+    <cr-toggle id="devMode" aria-labelledby="devModeLabel" checked="" role="button" tabindex="0" aria-pressed="true" aria-disabled="false"><template shadowrootmode="open"><!---->
+<span id="bar"></span>
+<span id="knob"></span></template>
+    </cr-toggle>
+  </div>
+  
+</cr-toolbar>
+<!--?lit$790478298$-->
+<div id="devDrawer" expanded="">
+  <div id="buttonStrip">
+    <cr-button id="loadUnpacked" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div><cr-ripple id="ink"><template shadowrootmode="open"><!----></template></cr-ripple></template>
+      Load unpacked
+    </cr-button>
+    <cr-button id="packExtensions" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div></template>
+      Pack extension
+    </cr-button>
+    <cr-button id="updateNow" title="Update extensions now" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div></template>
+      Update
+    </cr-button>
+  </div>
+</div>
+<!--_html_template_end_--></template>
+</extensions-toolbar>
+<!--?lit$790478298$-->
+<div id="cr-container-shadow-top" class="cr-container-shadow"></div><div id="container" class="scrolled-to-top scrolled-to-bottom"><div></div>
+  <div id="left">
+    <extensions-sidebar in-dev-mode="" role="navigation"><template shadowrootmode="open"><!----><!--_html_template_start_-->
+<cr-menu-selector id="sectionMenu" selected-attribute="selected" attr-for-selected="data-path" role="menu"><template shadowrootmode="open"><!----><slot></slot></template>
+  <!-- Values for "data-path" attribute must match the "Page" enum. -->
+  <a role="menuitem" class="cr-nav-menu-item selected" id="sectionsExtensions" href="chrome://extensions/" data-path="items-list" data-selection-index="0" selected="" aria-current="page">
+    <cr-icon icon="extensions-icons:my_extensions"><template shadowrootmode="open"><svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 -960 960 960" class="cr-iconset-svg-icon_">
+ <g viewBox="0 -960 960 960"><path d="M216-135.869q-33.287 0-56.709-23.422-23.422-23.422-23.422-56.709v-172.304q37.609-2 63.218-28.424 25.608-26.424 25.608-63.272t-25.608-63.272q-25.609-26.424-63.218-28.424V-744q0-33.287 23.422-56.709 23.422-23.422 56.709-23.422h161.065q2.631-40.956 31.96-69.315 29.329-28.359 70.75-28.359t70.975 28.199q29.554 28.199 32.185 69.475H744q33.287 0 56.709 23.422 23.422 23.422 23.422 56.709v161.065q40.956 2.631 69.315 31.96 28.359 29.329 28.359 70.75t-28.199 70.975q-28.199 29.554-69.475 32.185V-216q0 33.287-23.422 56.709-23.422 23.422-56.709 23.422H216Zm2.87-83.001h522.26v-522.26H218.87v108.652q42.13 22.63 65.597 63.772 23.468 41.141 23.468 88.706 0 49.01-23.468 90.168Q261-348.674 218.87-327.283v108.413ZM480-480Z"></path></g></svg><!----></template></cr-icon>
+    My extensions
+    <cr-ripple><template shadowrootmode="open"><!----></template></cr-ripple>
+  </a>
+  <a role="menuitem" class="cr-nav-menu-item" id="sectionsSitePermissions" href="chrome://extensions/sitePermissions" data-path="site-permissions" hidden="" data-selection-index="1">
+    <cr-icon icon="extensions-icons:site_permissions"><template shadowrootmode="open"><svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 -960 960 960" class="cr-iconset-svg-icon_">
+ <g viewBox="0 -960 960 960"><path d="M454.087-136.587V-384H533.5v84h288v79.413h-288v84h-79.413Zm-315.587-84V-300h247.413v79.413H138.5Zm144-135.826v-84h-144v-79.174h144v-84h79.413v247.174H282.5Zm147.587-84v-79.174H821.5v79.174H430.087Zm144-135.587v-247.413H653.5v84h168V-660h-168v84h-79.413ZM138.5-660v-79.413h391.413V-660H138.5Z"></path></g></svg><!----></template></cr-icon>
+    Site permissions
+    <cr-ripple><template shadowrootmode="open"><!----></template></cr-ripple>
+  </a>
+  <a role="menuitem" class="cr-nav-menu-item" id="sectionsShortcuts" href="chrome://extensions/shortcuts" data-path="keyboard-shortcuts" data-selection-index="2">
+    <cr-icon icon="extensions-icons:keyboard_shortcuts"><template shadowrootmode="open"><svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 -960 960 960" class="cr-iconset-svg-icon_">
+ <g viewBox="0 -960 960 960"><path d="M168-229q-34.483 0-58.741-24.259-24.26-24.258-24.26-58.741v-336q0-34.483 24.26-58.741Q133.517-731 168-731h624q34.483 0 58.741 24.259Q875-682.483 875-648v336q0 34.483-24.259 58.741Q826.483-229 792-229H168Zm0-83h624v-336H168v336Zm168-24h288v-72H336v72Zm-96-120h72v-72h-72v72Zm102 0h72v-72h-72v72Zm102 0h72v-72h-72v72Zm102 0h72v-72h-72v72Zm102 0h72v-72h-72v72Zm-408-96h72v-72h-72v72Zm102 0h72v-72h-72v72Zm102 0h72v-72h-72v72Zm102 0h72v-72h-72v72Zm102 0h72v-72h-72v72ZM168-312v-336 336Z"></path></g></svg><!----></template></cr-icon>
+      Keyboard shortcuts
+    <cr-ripple><template shadowrootmode="open"><!----></template></cr-ripple>
+  </a>
+</cr-menu-selector>
+<div class="separator"></div>
+      <!--?lit$790478298$-->
+        <div class="cr-nav-menu-item" id="moreExtensions">
+          <span id="promo-message-text" class="cr-secondary-text">Developing extensions? Stay up to date on <a target="_blank" href="https://developer.chrome.com/docs/extensions/whats-new?utm_source=ext_sidebar&amp;hl=en-GB">what's new</a> with Chrome extension developer documentation.</span>
+        </div>
+        
+<div class="separator"></div>
+<div class="cr-nav-menu-item" id="moreExtensions">
+  <cr-icon id="web-store-icon" icon="extensions-icons:web_store"><template shadowrootmode="open"><svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 0 192 192" class="cr-iconset-svg-icon_">
+ <g enable-background="new 0 0 192 192" height="24px" viewBox="0 0 192 192" width="24px"><path fill="none" d="M0 0h192v192H0z"></path><path fill="#F1F3F4" d="M172 28H20v121.63c0 5.72 4.64 10.37 10.37 10.37h131.27c5.72 0 10.37-4.64 10.37-10.37V28z"></path><path fill="#F1F3F4" d="M172 28H20v121.63c0 5.72 4.64 10.37 10.37 10.37h131.27c5.72 0 10.37-4.64 10.37-10.37V28z"></path><path fill="#E8EAED" d="M20 28h152v66.35H20z"></path><path fill="#FFF" d="M113.27 56.34H78.73c-3.82 0-6.91-3.09-6.91-6.91 0-3.82 3.09-6.91 6.91-6.91h34.54c3.82 0 6.91 3.09 6.91 6.91 0 3.81-3.09 6.91-6.91 6.91z"></path><defs><path id="a" d="M172 28H20v121.63c0 5.72 4.64 10.37 10.37 10.37h131.27c5.72 0 10.37-4.64 10.37-10.37V28z"></path></defs><clippath id="b"><use xlink:href="#a" overflow="visible"></use></clippath><g clip-path="url(#b)"><lineargradient id="c" x1="39.161" x2="152.841" y1="125.013" y2="125.013" gradientUnits="userSpaceOnUse"><stop offset="0" style="stop-color:#d93025"></stop><stop offset="1" style="stop-color:#ea4335"></stop></lineargradient><path fill="url(#c)" d="m39.16 116.8 9.05 27.61 19.38 21.63L96 116.81l56.84-.01C141.49 97.18 120.29 83.99 96 83.99c-24.29 0-45.49 13.19-56.84 32.81z"></path><lineargradient id="d" x1="-3.897" x2="109.806" y1="36.608" y2="36.608" gradientTransform="rotate(-120 100 93.002)" gradientUnits="userSpaceOnUse"><stop offset="0" style="stop-color:#1e8e3e"></stop><stop offset="1" style="stop-color:#34a853"></stop></lineargradient><path fill="url(#d)" d="m95.99 215.28 19.38-21.64 9.04-27.6H67.58L39.16 116.8c-11.31 19.64-12.14 44.61.01 65.65 12.14 21.04 34.17 32.81 56.82 32.83z"></path><lineargradient id="e" x1="96.791" x2="210.494" y1="8.387" y2="8.387" gradientTransform="rotate(120 88.856 76)" gradientUnits="userSpaceOnUse"><stop offset="0" style="stop-color:#fbbc04"></stop><stop offset="1" style="stop-color:#fcc934"></stop></lineargradient><path fill="url(#e)" d="M152.84 116.81H96l28.42 49.23L96 215.28c22.66-.02 44.69-11.79 56.83-32.83 12.15-21.04 11.32-46 .01-65.64z"></path><ellipse cx="96" cy="149.63" fill="#F1F3F4" rx="32.81" ry="32.82"></ellipse><ellipse cx="96" cy="149.63" fill="#1A73E8" rx="26.66" ry="26.67"></ellipse></g><path fill="#BDC1C6" d="M20 94.35h152v.86H20zM20 93.48h152v.86H20z" opacity=".1"></path></g></svg><!----></template>
+  </cr-icon>
+  <span id="discover-more-text" class="cr-secondary-text">Discover more extensions and themes on the <a target="_blank" href="https://chromewebstore.google.com/category/extensions?utm_source=ext_sidebar&amp;hl=en-GB">Chrome Web Store</a> </span>
+  <cr-ripple><template shadowrootmode="open"><!----></template></cr-ripple>
+</div>
+<!--_html_template_end_--></template>
+    </extensions-sidebar>
+  </div>
+  <cr-view-manager id="viewManager" role="main"><template shadowrootmode="open"><!----><slot name="view"></slot></template>
+    <extensions-item-list id="items-list" slot="view" in-dev-mode="" class="active"><template shadowrootmode="open"><!----><!--_html_template_start_-->
+<div id="container">
+  <managed-footnote managed-by-icon_=""><template shadowrootmode="open"><!----><!--?lit$790478298$--><!--?--></template></managed-footnote>
+  <div id="content-wrapper" style="--max-columns: 3;">
+    <!--?lit$790478298$-->
+
+    <!--?lit$790478298$-->
+
+    <div id="no-items" class="empty-list-message" hidden="">
+      <span>
+        Find extensions and themes in the <a target="_blank" href="https://chrome.google.com/webstore/category/extensions">Chrome Web Store</a>
+      </span>
+    </div>
+    <div id="no-search-results" class="empty-list-message" hidden="">
+      <span>No search results found</span>
+    </div>
+
+    <div id="extensions-section">
+      <!-- section-header needs to left-align with the grid content below, and
+           the easiest way to achieve this is to make it a grid as well. -->
+      <h2 class="section-header items-container">
+        All extensions
+      </h2>
+      <div class="items-container">
+        <!-- Render only a few items first, to improve initial render time,
+             then render the remaining items on a different frame. Value of 6
+             was chosen by experimentation, and it is a good trade-off between
+             initial render time and total render time. -->
+        <!--?lit$790478298$--><!---->
+          <extensions-item id="nedhpiklmlnoepfndcjbdgcdopojjndd" in-dev-mode=""><template shadowrootmode="open"><!----><!--_html_template_start_-->
+<!-- Invisible instead of hidden because VoiceOver refuses to read text of
+  element that's hidden when referenced by an aria label.  Unfortunately,
+  this text can be found by Ctrl + F because it isn't hidden. -->
+<div id="a11yAssociation" aria-hidden="true">
+  <!--?lit$790478298$-->Related to ConsentChain Tracker
+</div>
+<div id="card" class="enabled dev-mode">
+  <div id="main">
+    <div id="icon-wrapper">
+      <img id="icon" aria-describedby="a11yAssociation" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACiElEQVR4nOyav2siQRTHv/5ICEkuJJEQ0UCSJmkSrggkVSB9yrOy0FJBsbBIoQjW/gNaiN0VgqBwhZUgliLCoY1iI6hgoYIHKqJ4+8a43EGSJi+uC/uBYcfdAb/fnTczb5YxQsLtdlsNBkNEqj5JxYLNpiOV/Hw+f4nFYm3dq/jf0k0T1EVPMvHd+Prm1SaeMJF2I5Zho1aeyMCmx/xHWIxQOZoBpdEMKI1mQGk0A0qjGXiPvb09XF1dwWw2o9vtolqtYjqdght2Azs7O/B6vTg/P4dOp/vv2Wg0QjweR71eBxeG+/v7MJggwcFgEFarVRY/HA4h5e3Y2toSRfo/cb/RaIAD1h6gN39yciLquVwO2WwWk8lE/D4+Pobf78fh4SGen59RLBbR6/XwWfRg4uHhAdfX16JeLpeRTqdl8US/30coFJLHgc1mAwdsBh4fH8V1PB4jkUi82WaxWCCTyWAwGGB/fx8csIWQxbLcF7VarQ/bFQoFUbhgM0ADlGg2m1gnbAZWs0673cY6YRsDFN/E2dkZ1gmbgdXscnFxgXXCZmAVOv8uYm9xe3sLn88Hh8MBDtgM5PN5caVUwuVyvdvO6XSKHMlk4vmWxmaAFq9KpSLqNzc3sNvtODg4kJ8fHR0hHA4Lg0QymQQHOo/HswAjgUBAXhMISuD0er0snKDeSqVS4ICtB1ZEIhGRba5mpd3dXVk8mYlGo2ziCfYeWLG9vY3Ly0ucnp6KpK1Wq2E2m4GbL9vQ0LRKoql8JdqWUmk0A0qjGVAazYDSaAaURvUGKBvtQL10yEAe6iWvp1MfUuXzHynXDx32eDGUSqU/d3d3P6VdkxnLQx/fsNlQyP+SxP+g4zZ/AQAA//+vwHyaAAAABklEQVQDAIafzcEaKCZhAAAAAElFTkSuQmCC">
+      <!--?lit$790478298$-->
+        <div id="source-indicator">
+          <div class="source-icon-wrapper" role="img" aria-describedby="a11yAssociation" aria-label="Unpacked extension">
+            <cr-icon><template shadowrootmode="open"><svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 0 24 24" class="cr-iconset-svg-icon_">
+ <g>
+    <path class="cls-1" fill="none" d="M0,0H24V24H0V0Z"></path>
+    <circle cx="9" cy="12" r="1"></circle>
+    <path d="M20,5H4A2,2,0,0,0,2,7V17a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V7A2,2,0,0,0,20,5ZM9,17a5,5,0,1,1,5-5A5,5,0,0,1,9,17Zm11,1a1,1,0,1,1,1-1A1,1,0,0,1,20,18ZM20,8a1,1,0,1,1,1-1A1,1,0,0,1,20,8Z"></path>
+  </g></svg><!----></template>
+            </cr-icon>
+          </div>
+        </div>
+    </div>
+
+    <!-- This needs to be separate from the source-indicator since it can't
+     be contained inside of a position:relative parent element. -->
+    <!--?lit$790478298$-->
+      <cr-tooltip id="source-indicator-text" for="source-indicator" position="top" fit-to-visible-bounds="" aria-hidden="true" style="--paper-tooltip-delay-in: 500ms; --cr-tooltip-offset: 14px;"><template shadowrootmode="open"><!---->
+    <div id="tooltip" hidden="" part="tooltip">
+      <slot></slot>
+    </div>
+    <div id="tooltipOffsetFiller"></div></template>
+        <!--?lit$790478298$-->Unpacked extension
+      </cr-tooltip>
+    <div id="content">
+      <!--Note: We wrap inspect-views in a div so that the outer div
+          doesn't shrink (because it's not display: flex).-->
+      <div>
+        <div id="name-and-version" class="layout-horizontal-center">
+          <div id="name" role="heading" aria-level="3" class="clippable-flex-text">
+            <!--?lit$790478298$-->ConsentChain Tracker
+          </div>
+          <span id="version" class="cr-secondary-text">
+            <!--?lit$790478298$-->0.1.0
+          </span>
+        </div>
+      </div>
+      <div id="description" class="cr-secondary-text multiline-clippable-text">
+        <!--?lit$790478298$-->Track and manage your online data consents.
+      </div>
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+        <div id="extension-id" class="bounded-text cr-secondary-text">
+          <!--?lit$790478298$-->ID: nedhpiklmlnoepfndcjbdgcdopojjndd
+        </div>
+        <!--?lit$790478298$--><!--?-->
+    </div>
+  </div>
+  <div id="button-strip" class="layout-horizontal-center cr-secondary-text">
+    <div class="layout-horizontal-center flex">
+      <cr-button id="detailsButton" aria-describedby="a11yAssociation" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div></template>
+        Details
+      </cr-button>
+      <cr-button id="removeButton" aria-describedby="a11yAssociation" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div></template>
+        Remove
+      </cr-button>
+      <!--?lit$790478298$-->
+    </div>
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+      <cr-icon-button id="dev-reload-button" class="icon-refresh no-overlap" title="Reload" aria-label="Reload" aria-describedby="a11yAssociation" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="icon">
+  <div id="maskedImage"></div>
+</div></template>
+      </cr-icon-button>
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <cr-tooltip-icon id="parentDisabledPermissionsToolTip" tooltip-text="Your parent has disabled extension permissions" icon-class="cr20:kite" icon-aria-label="Your parent has disabled extension permissions" hidden=""><template shadowrootmode="open"><!---->
+<cr-icon id="indicator" tabindex="0" aria-describedby="tooltip" role="img" aria-label="Your parent has disabled extension permissions" icon="cr20:kite"><template shadowrootmode="open"><svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 0 20 20" class="cr-iconset-svg-icon_">
+ <g>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.6327 8.00094L10.3199 2L16 8.00094L10.1848 16.8673C10.0995 16.9873 10.0071 17.1074 9.90047 17.2199C9.42417 17.7225 8.79147 18 8.11611 18C7.44076 18 6.80806 17.7225 6.33175 17.2199C5.85545 16.7173 5.59242 16.0497 5.59242 15.3371C5.59242 14.977 5.46445 14.647 5.22275 14.3919C4.98104 14.1369 4.66825 14.0019 4.32701 14.0019H4V12.6667H4.32701C5.00237 12.6667 5.63507 12.9442 6.11137 13.4468C6.58768 13.9494 6.85071 14.617 6.85071 15.3296C6.85071 15.6896 6.97867 16.0197 7.22038 16.2747C7.46209 16.5298 7.77488 16.6648 8.11611 16.6648C8.45735 16.6648 8.77014 16.5223 9.01185 16.2747C9.02396 16.2601 9.03607 16.246 9.04808 16.2319C9.08541 16.1883 9.12176 16.1458 9.15403 16.0947L9.55213 15.4946L4.6327 8.00094ZM10.3199 13.9371L6.53802 8.17116L10.3199 4.1814L14.0963 8.17103L10.3199 13.9371Z">
+        </path>
+      </g></svg><!----></template>
+</cr-icon>
+<cr-tooltip id="tooltip" for="indicator" fit-to-visible-bounds="" part="tooltip" position="top" style="--paper-tooltip-delay-in: 500ms; --cr-tooltip-offset: 14px;"><template shadowrootmode="open"><!---->
+    <div id="tooltip" hidden="" part="tooltip">
+      <slot></slot>
+    </div>
+    <div id="tooltipOffsetFiller"></div></template>
+  <slot name="tooltip-text"><!--?lit$790478298$-->Your parent has disabled extension permissions</slot>
+</cr-tooltip></template>
+    </cr-tooltip-icon>
+    <cr-tooltip id="enable-toggle-tooltip" for="enableToggle" aria-hidden="true" animation-delay="0" fit-to-visible-bounds="" position="left" style="--paper-tooltip-delay-in: 0ms; --cr-tooltip-offset: 14px;"><template shadowrootmode="open"><!---->
+    <div id="tooltip" hidden="" part="tooltip">
+      <slot></slot>
+    </div>
+    <div id="tooltipOffsetFiller"></div></template>
+      <!--?lit$790478298$-->This extension may read and change site information or run in the background
+    </cr-tooltip>
+    <cr-toggle id="enableToggle" aria-describedby="a11yAssociation enable-toggle-tooltip" aria-label="On, extension enabled" checked="" role="button" tabindex="0" aria-pressed="true" aria-disabled="false"><template shadowrootmode="open"><!---->
+<span id="bar"></span>
+<span id="knob"></span></template>
+    </cr-toggle>
+  </div>
+</div>
+<!--_html_template_end_--></template>
+          </extensions-item><!----><!---->
+          <extensions-item id="hhljbjodjdbjbggddjaidojnlmaobcpo" in-dev-mode=""><template shadowrootmode="open"><!----><!--_html_template_start_-->
+<!-- Invisible instead of hidden because VoiceOver refuses to read text of
+  element that's hidden when referenced by an aria label.  Unfortunately,
+  this text can be found by Ctrl + F because it isn't hidden. -->
+<div id="a11yAssociation" aria-hidden="true">
+  <!--?lit$790478298$-->Related to CF Analytics
+</div>
+<div id="card" class="enabled dev-mode">
+  <div id="main">
+    <div id="icon-wrapper">
+      <img id="icon" aria-describedby="a11yAssociation" alt="" src="data:image/png;base64,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">
+      <!--?lit$790478298$-->
+    </div>
+
+    <!-- This needs to be separate from the source-indicator since it can't
+     be contained inside of a position:relative parent element. -->
+    <!--?lit$790478298$-->
+    <div id="content">
+      <!--Note: We wrap inspect-views in a div so that the outer div
+          doesn't shrink (because it's not display: flex).-->
+      <div>
+        <div id="name-and-version" class="layout-horizontal-center">
+          <div id="name" role="heading" aria-level="3" class="clippable-flex-text">
+            <!--?lit$790478298$-->CF Analytics
+          </div>
+          <span id="version" class="cr-secondary-text">
+            <!--?lit$790478298$-->3.0.0
+          </span>
+        </div>
+      </div>
+      <div id="description" class="cr-secondary-text multiline-clippable-text">
+        <!--?lit$790478298$-->Analyse Codeforces profiles
+      </div>
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+        <div id="extension-id" class="bounded-text cr-secondary-text">
+          <!--?lit$790478298$-->ID: hhljbjodjdbjbggddjaidojnlmaobcpo
+        </div>
+        <!--?lit$790478298$-->
+          <!--Note: We wrap inspect-views in a div so that the outer div
+              doesn't shrink (because it's not display: flex).-->
+          <div>
+            <div id="inspect-views" class="cr-secondary-text">
+              <span aria-describedby="a11yAssociation">
+                Inspect views
+              </span>
+              <a class="clippable-flex-text" is="action-link" title="service worker (Inactive)" tabindex="0" role="link">
+                <!--?lit$790478298$-->service worker (Inactive)
+              </a>
+              <a is="action-link" hidden="" tabindex="0" role="link">
+                &nbsp;<!--?lit$790478298$-->0 more…
+              </a>
+            </div>
+          </div><!--?-->
+    </div>
+  </div>
+  <div id="button-strip" class="layout-horizontal-center cr-secondary-text">
+    <div class="layout-horizontal-center flex">
+      <cr-button id="detailsButton" aria-describedby="a11yAssociation" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div></template>
+        Details
+      </cr-button>
+      <cr-button id="removeButton" aria-describedby="a11yAssociation" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div></template>
+        Remove
+      </cr-button>
+      <!--?lit$790478298$-->
+    </div>
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <cr-tooltip-icon id="parentDisabledPermissionsToolTip" tooltip-text="Your parent has disabled extension permissions" icon-class="cr20:kite" icon-aria-label="Your parent has disabled extension permissions" hidden=""><template shadowrootmode="open"><!---->
+<cr-icon id="indicator" tabindex="0" aria-describedby="tooltip" role="img" aria-label="Your parent has disabled extension permissions" icon="cr20:kite"><template shadowrootmode="open"><svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 0 20 20" class="cr-iconset-svg-icon_">
+ <g>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.6327 8.00094L10.3199 2L16 8.00094L10.1848 16.8673C10.0995 16.9873 10.0071 17.1074 9.90047 17.2199C9.42417 17.7225 8.79147 18 8.11611 18C7.44076 18 6.80806 17.7225 6.33175 17.2199C5.85545 16.7173 5.59242 16.0497 5.59242 15.3371C5.59242 14.977 5.46445 14.647 5.22275 14.3919C4.98104 14.1369 4.66825 14.0019 4.32701 14.0019H4V12.6667H4.32701C5.00237 12.6667 5.63507 12.9442 6.11137 13.4468C6.58768 13.9494 6.85071 14.617 6.85071 15.3296C6.85071 15.6896 6.97867 16.0197 7.22038 16.2747C7.46209 16.5298 7.77488 16.6648 8.11611 16.6648C8.45735 16.6648 8.77014 16.5223 9.01185 16.2747C9.02396 16.2601 9.03607 16.246 9.04808 16.2319C9.08541 16.1883 9.12176 16.1458 9.15403 16.0947L9.55213 15.4946L4.6327 8.00094ZM10.3199 13.9371L6.53802 8.17116L10.3199 4.1814L14.0963 8.17103L10.3199 13.9371Z">
+        </path>
+      </g></svg><!----></template>
+</cr-icon>
+<cr-tooltip id="tooltip" for="indicator" fit-to-visible-bounds="" part="tooltip" position="top" style="--paper-tooltip-delay-in: 500ms; --cr-tooltip-offset: 14px;"><template shadowrootmode="open"><!---->
+    <div id="tooltip" hidden="" part="tooltip">
+      <slot></slot>
+    </div>
+    <div id="tooltipOffsetFiller"></div></template>
+  <slot name="tooltip-text"><!--?lit$790478298$-->Your parent has disabled extension permissions</slot>
+</cr-tooltip></template>
+    </cr-tooltip-icon>
+    <cr-tooltip id="enable-toggle-tooltip" for="enableToggle" aria-hidden="true" animation-delay="0" fit-to-visible-bounds="" position="left" style="--paper-tooltip-delay-in: 0ms; --cr-tooltip-offset: 14px;"><template shadowrootmode="open"><!---->
+    <div id="tooltip" hidden="" part="tooltip">
+      <slot></slot>
+    </div>
+    <div id="tooltipOffsetFiller"></div></template>
+      <!--?lit$790478298$-->This extension may read and change site information or run in the background
+    </cr-tooltip>
+    <cr-toggle id="enableToggle" aria-describedby="a11yAssociation enable-toggle-tooltip" aria-label="On, extension enabled" checked="" role="button" tabindex="0" aria-pressed="true" aria-disabled="false"><template shadowrootmode="open"><!---->
+<span id="bar"></span>
+<span id="knob"></span></template>
+    </cr-toggle>
+  </div>
+</div>
+<!--_html_template_end_--></template>
+          </extensions-item><!----><!---->
+          <extensions-item id="gfdmmpimafkhcdekeddfeifcmcjbadam" in-dev-mode=""><template shadowrootmode="open"><!----><!--_html_template_start_-->
+<!-- Invisible instead of hidden because VoiceOver refuses to read text of
+  element that's hidden when referenced by an aria label.  Unfortunately,
+  this text can be found by Ctrl + F because it isn't hidden. -->
+<div id="a11yAssociation" aria-hidden="true">
+  <!--?lit$790478298$-->Related to Codeforces Friends Tracker
+</div>
+<div id="card" class="enabled dev-mode">
+  <div id="main">
+    <div id="icon-wrapper">
+      <img id="icon" aria-describedby="a11yAssociation" alt="" src="data:image/png;base64,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">
+      <!--?lit$790478298$-->
+    </div>
+
+    <!-- This needs to be separate from the source-indicator since it can't
+     be contained inside of a position:relative parent element. -->
+    <!--?lit$790478298$-->
+    <div id="content">
+      <!--Note: We wrap inspect-views in a div so that the outer div
+          doesn't shrink (because it's not display: flex).-->
+      <div>
+        <div id="name-and-version" class="layout-horizontal-center">
+          <div id="name" role="heading" aria-level="3" class="clippable-flex-text">
+            <!--?lit$790478298$-->Codeforces Friends Tracker
+          </div>
+          <span id="version" class="cr-secondary-text">
+            <!--?lit$790478298$-->2.1
+          </span>
+        </div>
+      </div>
+      <div id="description" class="cr-secondary-text multiline-clippable-text">
+        <!--?lit$790478298$-->Get submissions of your friends for a particular Codeforces problem
+      </div>
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+        <div id="extension-id" class="bounded-text cr-secondary-text">
+          <!--?lit$790478298$-->ID: gfdmmpimafkhcdekeddfeifcmcjbadam
+        </div>
+        <!--?lit$790478298$--><!--?-->
+    </div>
+  </div>
+  <div id="button-strip" class="layout-horizontal-center cr-secondary-text">
+    <div class="layout-horizontal-center flex">
+      <cr-button id="detailsButton" aria-describedby="a11yAssociation" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div></template>
+        Details
+      </cr-button>
+      <cr-button id="removeButton" aria-describedby="a11yAssociation" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div></template>
+        Remove
+      </cr-button>
+      <!--?lit$790478298$-->
+    </div>
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <cr-tooltip-icon id="parentDisabledPermissionsToolTip" tooltip-text="Your parent has disabled extension permissions" icon-class="cr20:kite" icon-aria-label="Your parent has disabled extension permissions" hidden=""><template shadowrootmode="open"><!---->
+<cr-icon id="indicator" tabindex="0" aria-describedby="tooltip" role="img" aria-label="Your parent has disabled extension permissions" icon="cr20:kite"><template shadowrootmode="open"><svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 0 20 20" class="cr-iconset-svg-icon_">
+ <g>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.6327 8.00094L10.3199 2L16 8.00094L10.1848 16.8673C10.0995 16.9873 10.0071 17.1074 9.90047 17.2199C9.42417 17.7225 8.79147 18 8.11611 18C7.44076 18 6.80806 17.7225 6.33175 17.2199C5.85545 16.7173 5.59242 16.0497 5.59242 15.3371C5.59242 14.977 5.46445 14.647 5.22275 14.3919C4.98104 14.1369 4.66825 14.0019 4.32701 14.0019H4V12.6667H4.32701C5.00237 12.6667 5.63507 12.9442 6.11137 13.4468C6.58768 13.9494 6.85071 14.617 6.85071 15.3296C6.85071 15.6896 6.97867 16.0197 7.22038 16.2747C7.46209 16.5298 7.77488 16.6648 8.11611 16.6648C8.45735 16.6648 8.77014 16.5223 9.01185 16.2747C9.02396 16.2601 9.03607 16.246 9.04808 16.2319C9.08541 16.1883 9.12176 16.1458 9.15403 16.0947L9.55213 15.4946L4.6327 8.00094ZM10.3199 13.9371L6.53802 8.17116L10.3199 4.1814L14.0963 8.17103L10.3199 13.9371Z">
+        </path>
+      </g></svg><!----></template>
+</cr-icon>
+<cr-tooltip id="tooltip" for="indicator" fit-to-visible-bounds="" part="tooltip" position="top" style="--paper-tooltip-delay-in: 500ms; --cr-tooltip-offset: 14px;"><template shadowrootmode="open"><!---->
+    <div id="tooltip" hidden="" part="tooltip">
+      <slot></slot>
+    </div>
+    <div id="tooltipOffsetFiller"></div></template>
+  <slot name="tooltip-text"><!--?lit$790478298$-->Your parent has disabled extension permissions</slot>
+</cr-tooltip></template>
+    </cr-tooltip-icon>
+    <cr-tooltip id="enable-toggle-tooltip" for="enableToggle" aria-hidden="true" animation-delay="0" fit-to-visible-bounds="" position="left" style="--paper-tooltip-delay-in: 0ms; --cr-tooltip-offset: 14px;"><template shadowrootmode="open"><!---->
+    <div id="tooltip" hidden="" part="tooltip">
+      <slot></slot>
+    </div>
+    <div id="tooltipOffsetFiller"></div></template>
+      <!--?lit$790478298$-->This extension may read and change site information or run in the background
+    </cr-tooltip>
+    <cr-toggle id="enableToggle" aria-describedby="a11yAssociation enable-toggle-tooltip" aria-label="On, extension enabled" checked="" role="button" tabindex="0" aria-pressed="true" aria-disabled="false"><template shadowrootmode="open"><!---->
+<span id="bar"></span>
+<span id="knob"></span></template>
+    </cr-toggle>
+  </div>
+</div>
+<!--_html_template_end_--></template>
+          </extensions-item><!----><!---->
+          <extensions-item id="eaoobobpbhdjmfodhjdoojgkhdmepfcc" in-dev-mode=""><template shadowrootmode="open"><!----><!--_html_template_start_-->
+<!-- Invisible instead of hidden because VoiceOver refuses to read text of
+  element that's hidden when referenced by an aria label.  Unfortunately,
+  this text can be found by Ctrl + F because it isn't hidden. -->
+<div id="a11yAssociation" aria-hidden="true">
+  <!--?lit$790478298$-->Related to CSES EXTENSION
+</div>
+<div id="card" class="enabled dev-mode">
+  <div id="main">
+    <div id="icon-wrapper">
+      <img id="icon" aria-describedby="a11yAssociation" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAAFWUlEQVR4nOyYZ0hcWxSFryWF9Eo6j3TSeyE9pIcE0gkpBEJCSEgjJCSBFCs27KhgRUFQFFSwY+/+sCFiQ+wNe+/6Prwy6szVmTzNwx+zfsycuffMvuvsvdY+Z0Z7aGhImEnQFmYY1ISUQU1IGdSElEFNSBnUhJRhxhHSFP4+urq6BgcHVZz8Fwn19/enpKR8+fLl6tWrlpaWKnL6LyVrbW1NT0+vqam5ePHiihUrJOfExcU5OjqGhoY2NDTwce7cuW/fvp0zZ47S4NKEenp6WB/f19YeN6Gzs9Pc3DwoKCg3NxdaVlZWHz58UPw6JD59+pSWlsZ4/fr1N2/efPr0qSKbvr6+zMzMlpaWDRs2bNu2TUNDQ4LQwMBAWFiYnZ0d8zZt2mRkZLRu3ToZS0NDQxMTE+Zoamru27dv//79kutBNI2NjQxevnz57t27PXv2KM6hgvb29rq6um1tbTt37gwMDISWPKHq6moLCwsnJyfY8DE7O/vNmzcyQgjCxsYGNocOHSIxFy5cWLt2rTABWC4pefz4sSQb4Ofn9/PnT9gsX76clVNT8fooIcrx/v17X19fxhs3bnzy5Mnx48cPHDggm9Dc3MwcSuDi4kJ6BBUwkZBZlbe3N2y2bNni7Ox8+PDh+fPnyxMqLCyMiYlh8ODBg1+/fu3atUsuipaWFuumWIsWLRKmBg7yCIDBjRs3zp49O/bWqO39/f3r6+upgr6+viIbYVieS5YswVwoWpgaWNXSpUsZUBB0WVlZKU8I0eAdBqdOnaJeklG4vnnz5t7eXldXV2ghOJJKLMXfLaJfRFDoiooKaiRHCHns3buXWz9+/Lh//35sbOw4QniY9BDo7t27s2bNkiS0ePHi58+fU7iAgIDLly+fO3fuzJkz58+fd3Nzk9NKU1MTaqNxYEm0T1FCQkLkoh08eNDDw4PHof3k5OQXL17k5eWNEoIpzQNlid6bCPfu3YMHT8KABQUFdXV1JOnz588RERFjp2VkZNTW1oodhBbKuKOjQzEazvD09KSJ89ySkpLi4mJBJurExESStGbNmmXLlk1CCItisdTUVDiRKl5///5dVFQUHR1NzmTTWKtYR0rDGl6/fn3ixAnJgOSS3kjfwvaiV0YI4UBeKerkGQL/DEP2ESoQIqLsClTKysoYINtnz57p6ektXLhQMhSN7fv376K12e927949SkiUISqZN2+eoDIQOJoVxquY8apVqxhcv37d1NRUUpFU0N3dnbulpaVk+tGjR2wJPF2QaUj8WlJSUnh4uKAa8BcGCQ4OFoZb1NhbIj/UOpE/EhIS2OxgQ0GMjY0dHBxk+8FIhi5dusRVpM3u8+rVK9y0evVqyVhUBMF5eXmR6pycHK7QzRGK4syxaZMDiqEUO3bsYNOUk5eWjo4ObxBE0RCvqqqKioqKj49HsAsWLCgvL8csstbMRTMzMzYy2gYWIwe3bt3imIH4xgYlzTiZEly7dg0HKTKj/dLwWLbi9qwxtq0Rhc2Vjbe7u5soK1euZMCO5uPjI3KCxOnTp/Pz81nAnTt3eN7JkycVdxJra+uPHz/Onj2bjn/79u1v375NVDtFjGRIBBXl7EJ7oEnSBdrb2+l4VIQ0EJ0JvIr7Kych1rd161bJMxdup3niXBo6wn/48KEqRzOJDMkAFdoUDkKt27dvp/3Ibg0Ng0dOFJFO+PXr18jISKYdOXLE1tb22LFjgsrQmN5/0GjKV65cycrKYiXU1MDAgKPgH0WY5p9BeOfo0aPC8CaDjLCF8IfQmPb/GDno0Lix2CS2/18JTRHqn9LKoCakDGpCyqAmpAxqQsrwLwAAAP//COvEpAAAAAZJREFUAwBvQZWStkjn+wAAAABJRU5ErkJggg==">
+      <!--?lit$790478298$-->
+    </div>
+
+    <!-- This needs to be separate from the source-indicator since it can't
+     be contained inside of a position:relative parent element. -->
+    <!--?lit$790478298$-->
+    <div id="content">
+      <!--Note: We wrap inspect-views in a div so that the outer div
+          doesn't shrink (because it's not display: flex).-->
+      <div>
+        <div id="name-and-version" class="layout-horizontal-center">
+          <div id="name" role="heading" aria-level="3" class="clippable-flex-text">
+            <!--?lit$790478298$-->CSES EXTENSION
+          </div>
+          <span id="version" class="cr-secondary-text">
+            <!--?lit$790478298$-->1.0.0
+          </span>
+        </div>
+      </div>
+      <div id="description" class="cr-secondary-text multiline-clippable-text">
+        <!--?lit$790478298$-->Enhance your CSES experience with notes, tags, stats, and automation tools.
+      </div>
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+        <div id="extension-id" class="bounded-text cr-secondary-text">
+          <!--?lit$790478298$-->ID: eaoobobpbhdjmfodhjdoojgkhdmepfcc
+        </div>
+        <!--?lit$790478298$--><!--?-->
+    </div>
+  </div>
+  <div id="button-strip" class="layout-horizontal-center cr-secondary-text">
+    <div class="layout-horizontal-center flex">
+      <cr-button id="detailsButton" aria-describedby="a11yAssociation" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div></template>
+        Details
+      </cr-button>
+      <cr-button id="removeButton" aria-describedby="a11yAssociation" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div></template>
+        Remove
+      </cr-button>
+      <!--?lit$790478298$-->
+    </div>
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <cr-tooltip-icon id="parentDisabledPermissionsToolTip" tooltip-text="Your parent has disabled extension permissions" icon-class="cr20:kite" icon-aria-label="Your parent has disabled extension permissions" hidden=""><template shadowrootmode="open"><!---->
+<cr-icon id="indicator" tabindex="0" aria-describedby="tooltip" role="img" aria-label="Your parent has disabled extension permissions" icon="cr20:kite"><template shadowrootmode="open"><svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 0 20 20" class="cr-iconset-svg-icon_">
+ <g>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.6327 8.00094L10.3199 2L16 8.00094L10.1848 16.8673C10.0995 16.9873 10.0071 17.1074 9.90047 17.2199C9.42417 17.7225 8.79147 18 8.11611 18C7.44076 18 6.80806 17.7225 6.33175 17.2199C5.85545 16.7173 5.59242 16.0497 5.59242 15.3371C5.59242 14.977 5.46445 14.647 5.22275 14.3919C4.98104 14.1369 4.66825 14.0019 4.32701 14.0019H4V12.6667H4.32701C5.00237 12.6667 5.63507 12.9442 6.11137 13.4468C6.58768 13.9494 6.85071 14.617 6.85071 15.3296C6.85071 15.6896 6.97867 16.0197 7.22038 16.2747C7.46209 16.5298 7.77488 16.6648 8.11611 16.6648C8.45735 16.6648 8.77014 16.5223 9.01185 16.2747C9.02396 16.2601 9.03607 16.246 9.04808 16.2319C9.08541 16.1883 9.12176 16.1458 9.15403 16.0947L9.55213 15.4946L4.6327 8.00094ZM10.3199 13.9371L6.53802 8.17116L10.3199 4.1814L14.0963 8.17103L10.3199 13.9371Z">
+        </path>
+      </g></svg><!----></template>
+</cr-icon>
+<cr-tooltip id="tooltip" for="indicator" fit-to-visible-bounds="" part="tooltip" position="top" style="--paper-tooltip-delay-in: 500ms; --cr-tooltip-offset: 14px;"><template shadowrootmode="open"><!---->
+    <div id="tooltip" hidden="" part="tooltip">
+      <slot></slot>
+    </div>
+    <div id="tooltipOffsetFiller"></div></template>
+  <slot name="tooltip-text"><!--?lit$790478298$-->Your parent has disabled extension permissions</slot>
+</cr-tooltip></template>
+    </cr-tooltip-icon>
+    <cr-tooltip id="enable-toggle-tooltip" for="enableToggle" aria-hidden="true" animation-delay="0" fit-to-visible-bounds="" position="left" style="--paper-tooltip-delay-in: 0ms; --cr-tooltip-offset: 14px;"><template shadowrootmode="open"><!---->
+    <div id="tooltip" hidden="" part="tooltip">
+      <slot></slot>
+    </div>
+    <div id="tooltipOffsetFiller"></div></template>
+      <!--?lit$790478298$-->This extension may read and change site information or run in the background
+    </cr-tooltip>
+    <cr-toggle id="enableToggle" aria-describedby="a11yAssociation enable-toggle-tooltip" aria-label="On, extension enabled" role="button" tabindex="0" aria-pressed="true" aria-disabled="false" checked=""><template shadowrootmode="open"><!---->
+<span id="bar"></span>
+<span id="knob"></span></template>
+    </cr-toggle>
+  </div>
+</div>
+<!--_html_template_end_--></template>
+          </extensions-item><!----><!---->
+          <extensions-item id="dmghijelimhndkbmpgbldicpogfkceaj" in-dev-mode=""><template shadowrootmode="open"><!----><!--_html_template_start_-->
+<!-- Invisible instead of hidden because VoiceOver refuses to read text of
+  element that's hidden when referenced by an aria label.  Unfortunately,
+  this text can be found by Ctrl + F because it isn't hidden. -->
+<div id="a11yAssociation" aria-hidden="true">
+  <!--?lit$790478298$-->Related to Dark Mode
+</div>
+<div id="card" class="disabled dev-mode">
+  <div id="main">
+    <div id="icon-wrapper">
+      <img id="icon" aria-describedby="a11yAssociation" alt="" src="data:image/png;base64,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">
+      <!--?lit$790478298$-->
+    </div>
+
+    <!-- This needs to be separate from the source-indicator since it can't
+     be contained inside of a position:relative parent element. -->
+    <!--?lit$790478298$-->
+    <div id="content">
+      <!--Note: We wrap inspect-views in a div so that the outer div
+          doesn't shrink (because it's not display: flex).-->
+      <div>
+        <div id="name-and-version" class="layout-horizontal-center">
+          <div id="name" role="heading" aria-level="3" class="clippable-flex-text">
+            <!--?lit$790478298$-->Dark Mode
+          </div>
+          <span id="version" class="cr-secondary-text">
+            <!--?lit$790478298$-->0.5.3
+          </span>
+        </div>
+      </div>
+      <div id="description" class="cr-secondary-text multiline-clippable-text">
+        <!--?lit$790478298$-->A global dark theme for the web.
+      </div>
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+        <div id="extension-id" class="bounded-text cr-secondary-text">
+          <!--?lit$790478298$-->ID: dmghijelimhndkbmpgbldicpogfkceaj
+        </div>
+        <!--?lit$790478298$--><!--?-->
+    </div>
+  </div>
+  <div id="button-strip" class="layout-horizontal-center cr-secondary-text">
+    <div class="layout-horizontal-center flex">
+      <cr-button id="detailsButton" aria-describedby="a11yAssociation" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div></template>
+        Details
+      </cr-button>
+      <cr-button id="removeButton" aria-describedby="a11yAssociation" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div></template>
+        Remove
+      </cr-button>
+      <!--?lit$790478298$-->
+    </div>
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <cr-tooltip-icon id="parentDisabledPermissionsToolTip" tooltip-text="Your parent has disabled extension permissions" icon-class="cr20:kite" icon-aria-label="Your parent has disabled extension permissions" hidden=""><template shadowrootmode="open"><!---->
+<cr-icon id="indicator" tabindex="0" aria-describedby="tooltip" role="img" aria-label="Your parent has disabled extension permissions" icon="cr20:kite"><template shadowrootmode="open"><svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 0 20 20" class="cr-iconset-svg-icon_">
+ <g>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.6327 8.00094L10.3199 2L16 8.00094L10.1848 16.8673C10.0995 16.9873 10.0071 17.1074 9.90047 17.2199C9.42417 17.7225 8.79147 18 8.11611 18C7.44076 18 6.80806 17.7225 6.33175 17.2199C5.85545 16.7173 5.59242 16.0497 5.59242 15.3371C5.59242 14.977 5.46445 14.647 5.22275 14.3919C4.98104 14.1369 4.66825 14.0019 4.32701 14.0019H4V12.6667H4.32701C5.00237 12.6667 5.63507 12.9442 6.11137 13.4468C6.58768 13.9494 6.85071 14.617 6.85071 15.3296C6.85071 15.6896 6.97867 16.0197 7.22038 16.2747C7.46209 16.5298 7.77488 16.6648 8.11611 16.6648C8.45735 16.6648 8.77014 16.5223 9.01185 16.2747C9.02396 16.2601 9.03607 16.246 9.04808 16.2319C9.08541 16.1883 9.12176 16.1458 9.15403 16.0947L9.55213 15.4946L4.6327 8.00094ZM10.3199 13.9371L6.53802 8.17116L10.3199 4.1814L14.0963 8.17103L10.3199 13.9371Z">
+        </path>
+      </g></svg><!----></template>
+</cr-icon>
+<cr-tooltip id="tooltip" for="indicator" fit-to-visible-bounds="" part="tooltip" position="top" style="--paper-tooltip-delay-in: 500ms; --cr-tooltip-offset: 14px;"><template shadowrootmode="open"><!---->
+    <div id="tooltip" hidden="" part="tooltip">
+      <slot></slot>
+    </div>
+    <div id="tooltipOffsetFiller"></div></template>
+  <slot name="tooltip-text"><!--?lit$790478298$-->Your parent has disabled extension permissions</slot>
+</cr-tooltip></template>
+    </cr-tooltip-icon>
+    <cr-tooltip id="enable-toggle-tooltip" for="enableToggle" aria-hidden="true" animation-delay="0" fit-to-visible-bounds="" position="left" style="--paper-tooltip-delay-in: 0ms; --cr-tooltip-offset: 14px;"><template shadowrootmode="open"><!---->
+    <div id="tooltip" hidden="" part="tooltip">
+      <slot></slot>
+    </div>
+    <div id="tooltipOffsetFiller"></div></template>
+      <!--?lit$790478298$-->This extension cannot read and change site information or run in the background
+    </cr-tooltip>
+    <cr-toggle id="enableToggle" aria-describedby="a11yAssociation enable-toggle-tooltip" aria-label="Off" role="button" tabindex="0" aria-pressed="false" aria-disabled="false"><template shadowrootmode="open"><!---->
+<span id="bar"></span>
+<span id="knob"></span></template>
+    </cr-toggle>
+  </div>
+</div>
+<!--_html_template_end_--></template>
+          </extensions-item><!----><!---->
+          <extensions-item id="eimadpbcbfnmbkopoojfekhnkhdbieeh" in-dev-mode=""><template shadowrootmode="open"><!----><!--_html_template_start_-->
+<!-- Invisible instead of hidden because VoiceOver refuses to read text of
+  element that's hidden when referenced by an aria label.  Unfortunately,
+  this text can be found by Ctrl + F because it isn't hidden. -->
+<div id="a11yAssociation" aria-hidden="true">
+  <!--?lit$790478298$-->Related to Dark Reader
+</div>
+<div id="card" class="disabled dev-mode">
+  <div id="main">
+    <div id="icon-wrapper">
+      <img id="icon" aria-describedby="a11yAssociation" alt="" src="data:image/png;base64,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">
+      <!--?lit$790478298$-->
+    </div>
+
+    <!-- This needs to be separate from the source-indicator since it can't
+     be contained inside of a position:relative parent element. -->
+    <!--?lit$790478298$-->
+    <div id="content">
+      <!--Note: We wrap inspect-views in a div so that the outer div
+          doesn't shrink (because it's not display: flex).-->
+      <div>
+        <div id="name-and-version" class="layout-horizontal-center">
+          <div id="name" role="heading" aria-level="3" class="clippable-flex-text">
+            <!--?lit$790478298$-->Dark Reader
+          </div>
+          <span id="version" class="cr-secondary-text">
+            <!--?lit$790478298$-->4.9.112
+          </span>
+        </div>
+      </div>
+      <div id="description" class="cr-secondary-text multiline-clippable-text">
+        <!--?lit$790478298$-->Dark mode for every website. Take care of your eyes, use dark theme for night and daily browsing.
+      </div>
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+        <div id="extension-id" class="bounded-text cr-secondary-text">
+          <!--?lit$790478298$-->ID: eimadpbcbfnmbkopoojfekhnkhdbieeh
+        </div>
+        <!--?lit$790478298$--><!--?-->
+    </div>
+  </div>
+  <div id="button-strip" class="layout-horizontal-center cr-secondary-text">
+    <div class="layout-horizontal-center flex">
+      <cr-button id="detailsButton" aria-describedby="a11yAssociation" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div></template>
+        Details
+      </cr-button>
+      <cr-button id="removeButton" aria-describedby="a11yAssociation" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div></template>
+        Remove
+      </cr-button>
+      <!--?lit$790478298$-->
+    </div>
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <cr-tooltip-icon id="parentDisabledPermissionsToolTip" tooltip-text="Your parent has disabled extension permissions" icon-class="cr20:kite" icon-aria-label="Your parent has disabled extension permissions" hidden=""><template shadowrootmode="open"><!---->
+<cr-icon id="indicator" tabindex="0" aria-describedby="tooltip" role="img" aria-label="Your parent has disabled extension permissions" icon="cr20:kite"><template shadowrootmode="open"><svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 0 20 20" class="cr-iconset-svg-icon_">
+ <g>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.6327 8.00094L10.3199 2L16 8.00094L10.1848 16.8673C10.0995 16.9873 10.0071 17.1074 9.90047 17.2199C9.42417 17.7225 8.79147 18 8.11611 18C7.44076 18 6.80806 17.7225 6.33175 17.2199C5.85545 16.7173 5.59242 16.0497 5.59242 15.3371C5.59242 14.977 5.46445 14.647 5.22275 14.3919C4.98104 14.1369 4.66825 14.0019 4.32701 14.0019H4V12.6667H4.32701C5.00237 12.6667 5.63507 12.9442 6.11137 13.4468C6.58768 13.9494 6.85071 14.617 6.85071 15.3296C6.85071 15.6896 6.97867 16.0197 7.22038 16.2747C7.46209 16.5298 7.77488 16.6648 8.11611 16.6648C8.45735 16.6648 8.77014 16.5223 9.01185 16.2747C9.02396 16.2601 9.03607 16.246 9.04808 16.2319C9.08541 16.1883 9.12176 16.1458 9.15403 16.0947L9.55213 15.4946L4.6327 8.00094ZM10.3199 13.9371L6.53802 8.17116L10.3199 4.1814L14.0963 8.17103L10.3199 13.9371Z">
+        </path>
+      </g></svg><!----></template>
+</cr-icon>
+<cr-tooltip id="tooltip" for="indicator" fit-to-visible-bounds="" part="tooltip" position="top" style="--paper-tooltip-delay-in: 500ms; --cr-tooltip-offset: 14px;"><template shadowrootmode="open"><!---->
+    <div id="tooltip" hidden="" part="tooltip">
+      <slot></slot>
+    </div>
+    <div id="tooltipOffsetFiller"></div></template>
+  <slot name="tooltip-text"><!--?lit$790478298$-->Your parent has disabled extension permissions</slot>
+</cr-tooltip></template>
+    </cr-tooltip-icon>
+    <cr-tooltip id="enable-toggle-tooltip" for="enableToggle" aria-hidden="true" animation-delay="0" fit-to-visible-bounds="" position="left" style="--paper-tooltip-delay-in: 0ms; --cr-tooltip-offset: 14px;"><template shadowrootmode="open"><!---->
+    <div id="tooltip" hidden="" part="tooltip">
+      <slot></slot>
+    </div>
+    <div id="tooltipOffsetFiller"></div></template>
+      <!--?lit$790478298$-->This extension cannot read and change site information or run in the background
+    </cr-tooltip>
+    <cr-toggle id="enableToggle" aria-describedby="a11yAssociation enable-toggle-tooltip" aria-label="Off" role="button" tabindex="0" aria-pressed="false" aria-disabled="false"><template shadowrootmode="open"><!---->
+<span id="bar"></span>
+<span id="knob"></span></template>
+    </cr-toggle>
+  </div>
+</div>
+<!--_html_template_end_--></template>
+          </extensions-item><!----><!---->
+          <extensions-item id="ghbmnnjooekpmoecnnnilnnbdlolhkhi" in-dev-mode=""><template shadowrootmode="open"><!----><!--_html_template_start_-->
+<!-- Invisible instead of hidden because VoiceOver refuses to read text of
+  element that's hidden when referenced by an aria label.  Unfortunately,
+  this text can be found by Ctrl + F because it isn't hidden. -->
+<div id="a11yAssociation" aria-hidden="true">
+  <!--?lit$790478298$-->Related to Google Docs Offline
+</div>
+<div id="card" class="disabled dev-mode">
+  <div id="main">
+    <div id="icon-wrapper">
+      <img id="icon" aria-describedby="a11yAssociation" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAQAElEQVR4nOxda4wkVRU+VdXdMz0zOzOMLoIE8YH4VtCosKhxNSqJMQgGQSKwmwDyUkk08QHIajTGv0YEY5BZjYARWNAgDyUQIWDcIBseEdhlnSDIwrLMzM7sdM90V13vqUd3Pe6zuqq7erq/SU1X3bqPqjrfPefcc293lWCIgUYJhhhoDAkw4BgSYMAxJMCAY0iAAceQAAOOIQEGHANDAELIxsZTl5xqv/bI5cSpvQd6BuJ/tD9xb23lwOJKdfOnNh7z4fdXjv3eLHQJBgwAqPCPqT988g3OoWc3Q88RIwA9duiu4wDU16ynDnvvtyk5ydZukcCEdQ4q/DcWR/h8GAYBy2y+x7ZtPLxhbc9Pt0AXsO4JsPbk1y4puvBRKRB/MwwTmk0HU7tCgnVPAHv+HxdAP8C3CKZpuFu3SLCuCUDV/xg0lw+HPgHhkuAnWyAnrGsCGIaxQpoHob/gscAlgYEkQJ/AyI0E694E9DNMKyABaoJ8SDAkQMFhWmauJBgSoKtIxgBUyuSpCYYEKATkRAhIYGfsGA4JUCiIiYAkoI4tOLabLxMSDAnQZ0ASIFokeLYzEgwJ0DWksf9sIAmwtI0kMDojQWEmgzBos/nPV141X186p0nso6BH8ORDWuIhmEBna352zAR8anmWjs8hJXgEIO5EEG6rDQLT7/1usgyrHopmwwGDxgssutHkrZXjrpgFTRRiOviaJ+45+kO3XH7vwtrKO6HHIL6APB6QFgGeGfkMNGmP+0xtO33goAl5b8d2qHkHp7EIZnkKVFAqefMGNuBEkoGaAHRJ0HMTQG98w/VP/6UQwueCeJG556qb4G/V88ANzqWqh6/+UQOgOm4sPAGq14RAEhBKUBvnlA2ibQ56ToBT7rz66sIKn3gbodKxSpZre/eMnQT3jJwLDWUSEOk57PneTCBAbd+D0Fh5GWTqP4xOSNBzAuxbWTgL+gRIAoM6Af+Z2AR/HdXUBCLnj3iLQhBIgvndN0Kz9jIoVuz+b5HA1iNBTwlA1X95zWn2zOGTAnWyERWYpwlM2Dt+EtyNmqApqkDe+4OPkQr16psEaPVQMuqw8PRvYOnFh8BeXQRVuCQgAQkcSoIfbZGWgR6CBjUab/19f0zXIwJxIgkQc6gJKEk+W/8t+EmcgqKhnz/7R+spl+lIYA39DQL76STmgf8+SHv1311zg4JFP8E1SRHytOt0B4e+OcE6Fparp9PkWRBguCpYA6gQ4iTYO74J7qKJp1ASlCNPMz7sY5wL6jW8tFIJx/gA9VWAN8x44/yVGj1voh9Cj514cRKqnkTqwpVlG6dqXwAJhoGgDuD6BNQxnJs4Ce6tnhvyCRQduBg5UHYmNTmj1BwgmY58PcDEuKcdMP5guRvxP/00y9+CNMP7rFBtItRKPoYaIIRIDADC4SCIpIdh4dMn4PoEnibY3tYETNXPJwf2XrcDmx4RUJhvegNAtULgENUETpCVMItD+LQBgTYQY0gABcjCOK45aIKnCehD/xwlQcmUaAGBaXBNjdEW4OunvV59qA6+D8Cvi4TqUAnzDgmQEQISoCa4l/Ze1ASmb48TIGKNgEvEcfBBTC8vCn8j9QkqSwRqq9xiknbYGPoAXKg84SjcISI1zHtoxPAeGidwiJrqT+xzmp7aADBe9f2AwPZb4f3kJsNQA/hI2v8gHbSAJMAiuykJsOwpq7OuPQ81xGo9sU8MP6+vxw0/fXLCMwerDVY1+qRVJgDO1l08W79qaYWcQ0cn2QVv5jXykpiDRkgrVHv0cTvh9vmb1DyfFGCKjfHAMSUYIrphYyr8z9VnPXMg1QiRynknYHyM3iZ1ChvNmNYwovlUoESA2/9Jjj73utq9y3VSgNk6/zM4wACJ3YQTxj/ihkLvWLgZfOOrUafCwwqC9YrwSEDamqB+Q+iyeETwCW3EkhnCHKOmoF6HUCRSv/cjpD4Aztbd+mgxhM9CMH9v0AjKCRs+CqdOnwWtwLpuXa1PkhhuOY4DeiCtsPHusU1wd3Wrf1kqwhfkae3SeMGIN94P4gTtjbT2ZZBm+cb21asLK3z/PyE4W1eiN+yTYPJMILaawES9n5C2zVmsLUvLMeMEAQmoJrh7dEuIm3zB6gDnEMplL2YQbEZok0FKgNcOOX00W+eTYOpE+CLVBKokQCR6P0TH1k++OqctnKCWtiY4Gf44ciEctEvMjGJK8UniRv1KXsgYTOJ+BpsMwiw4W9ewSXFm64j8RIsEkyfCqVNiEgh7P/6jXYj4IbWdr+yBl+b3Q1oEJNhHfZVt5rfg4fpMu6VA9YOC6mdfqTuRhMO+sCYwjQ7jADhb10i7+iUP8FRa7D5NSgLD1wSnKmiCZO9ntEu3W595CP5HSSBX/+wHH5DgmJm3w/WVS+DqhXd5uRN2X3SxfGKUS15MIDMNUDjwnhGDGBFNMJkkQXzcH22GtOs1vLX4+KRWTRtufPp+eHDPLpg/dJCOPmzty/UWlRjwvte9GV6Y/FJ7NMMtqecflPyJIYwbDE4omDEcxmdlWSU3ATUBJt6xeDOdvTM5PTjZ+yOHvlflLNXhkZf+BY88/igQOv1Hgt93CcpE4vIQTfe9MmJ4+0gE+ISi8BlXzDv2CKA2GOorApDYJyjcIGoCjNGjJsD8SALwv1zBUv3xGUB3gUWgCUomWDNj4FQscBbq3ml31bDZKss2uyR60cFMTcJNFwhfGERK5lUNhawLDSDjQYsEvia4feEmYK3tJsDovfEejUQYq4BZNsF5reb2fuKQUAbG1cSE58rGJ4Bz8kvAxIG7wNzzTXrdi6A1+gjlVSFB/xBA4xmwYIY1AX3wty96YWOZ6g+E7lXiJ7raoAzmEb4m8L6wSWXqtDlA2jY4MEvufiu+b3Bvyc0zcwo476TRwydOi5+VHOuhfzUAiXywTiWAJCCUBMfTYBFiB5KgVYbhF3DseWsdN+1ixmGjAMsNIGsYkzXF9omnIXhtTm5iVcA/Jvrk6BsCJOw/B7IRVWAOkAQodDQHxEi2k2zb67ltjWC46t/Av8kRcBqUXLVGol8TCGkCEh6wiAnHuwrucYogFaI/CKA6RAa1VTAtn2DDie7xjoUbfXMQqivhdEVnaCLncYBAHUN0EsnKWksYiethjFbY7WUBtfr6ggAqtxIMs1RNQpsEH3XL7lhsTyUnVb8n/EQ9RnQ04Y4uxukMTb3hjcFIW8wEgMsGufCzV/0Bik8Awthl3B/O1uECTeWOFMQJ6E5LE1ASxPt99L+fLhzr051q2fMJmg6n6RAxMhe+HgofCVSzigYsrTQgDSyr7M8i0gmkya9E1LdM+CKgSYARLzhPIgF60Juui0BF+HqEKLYGEPT++Mh6z0ur8KEJqn5jXoBK/7LokA7NwQfpENEiVbiN+gS2VQeNy2P4DNBeqB+aUCEx4289fEToRBv2yS8LWoNMhI8otAZQ8fjB88Ph3y868PKBZUgLJAFqgg9MfQDOrl4J1frbEtcgVP0xtFIwZlAJ5mqNyOaNComCDVfyghTToiguARRtvwtXnZpw3+PL8MprCiTg1BOQ4B2Hb4AzJy6FjfOnt4voOBesSyx72sAIJpdcC2AolGfFE1QIona9xSQAEY/7w73Lm1Qx6SSPBTaMwN2P1WDn0/thcbkOdqrZOo8Ex9Io3+c3ftzLRwi3HEv1cx89jhJKRlQRSK8onkVfzYtQSB+AKCa2n4X/NKkWWFvZDzt3HYCdjzngNNdoHttdMtaa/iWcKgPj7PZK0/00TerNb1IVvhitvFg/rhd1GD6DvBJWomIaG4UjAJGo/uitBYL31KlBe9fo1FF0omYU1pZe8eyu++ML7verg1XkrYZ4IjB8xYiLSoCTh3DUMFMccQ2Cl40OoksCRQHmIHxEsQjAFXQyLfo82u4goUQoj06BaY1CffEFOlNn0ylaT5BG2LRwJmvCtYWX1BCFC1dz1UK5TBUfAHITPqI4BODZfcnzcHcNb9Le8DWBQ7cSHd+PlY+F1eX9rimIPHrC0jSh8WWLGQbzEnTsvl6It7vCRxSDAArCV7tlX3K+d22YJRjZcAQ0agtgN1ZaizVcGbf2SSQ9Xp+K8HlIOo/x4+SeHDrCl9fbewJoCl/YIQxvJZzh+wUAnpqvTGykBKhBs35QWB/h1dvKy36gSnZfR0hER6Dpen6A3hGAxAQB7ANlYcWrj2Uwy1UoU7PgkkClophjoOP0qYBbTivCR9K0EEFvCJCl8EWyDAVa3PECJUClOgPNtWXXOYyY+9C+vOfr2X2VXxrxC7ISeZmBD3Vadp8AuQufiPOjgziygZqEOjh2o50MbDzzxZ+DCG/fcVnkWF31RwqBHrIRPqJ7BCAMb5pz0EnPV32WGCtAJ9Furgpy6T1MFeEn/YzeCR+RPwFkgo8lpBEmr2YZYQyrROMxJtUGaxBxRY2gfQOO2/H1SKkg1+7TfhFtK43wmSA5nOMjHwJwh1V8ocQPCVErp6z6uTDBotrACxu77+RpnTESLbChMtZXGSl0W/iI7AggEDozXVH4atqCKGsLXjtmqQKO03SdQ1m5SDrvW0aSskE5+2Ovghgk/XmVr5JJc8TriK6N1OclEefJQvhybcEG+gQY/nVJ4HuG+hY6fW/UbUl8Wu06pASQ9VzZ6d+d37uvF2MvO+s6i3Mudux/4sub8Tt7xNa/blW73/kK4GyEj+h4PQCJbUWBeA4fuOc8GK6DyFuzp6L2vTS1snrITvgIfQ2ggiIxATQvJ5QZp4Pj3j67SAGE37MvhhRM2AjuV7pApfdrtpWn8FefF9QYqRzSQt8JVEC4yFd/HVtUoSIAbh4iLy9w+nTKBocY6WMJb8/p1wALOsKXOYzm3u9DnsJ324AMIPMDgoWvSgIgvEOiLcD4NaQpq2rveVWk6vnNRTB3XwrGgTvF+To2KXn5ACC+NpWHH3fh0vTeTkC46Woq300XPISgHuuhGeZZITIQfIBMI4FaQuecIIyjToWfFXmyFj7rjBQZCh8h1wAdtIdFb7ww3ziATMV++Vr+wk52AqMNTX1SHOHL82c+F5AtPyVtaT4QfdPTDeH3RvABUhOgm4JOtJ1CLaURPuK5038Jym2k6vnSSkEPevn7LhCUifAV8+g0lbnwU9le/TK5B4LO/pUlyMZ28rj5FZy1zuIMyXredtslzDx7fc0gI6RI+KRT1sVaigPfQShDLoEgcVG+0LllFAmSRvgypBeHhBiZCZ9fZk34VlMPmX05lDA21llWQAiYZUInJElKQSbFuoL6OoG28HkPRaElHvBbZ0uHAOZ3wDQIkFsgKFwyi/gAL29a86FTX/R8epXPrD8nWz9/0P0F8bnDToMFUb6MhoGx/h46vPkivTdtdD5jFsUZ11qFEH52tyWuCHs+Ch9fLzczBT8ECRQI0I2byl7w7YqVksRaKutenwriStDhQ5uPah9fYTs1AbOHf0n84mhErpFAFZC8G4i3x0oTOKR7JXGAGTNLKgAAA3FJREFUToX//D6QQO/54HuCUPhHnQVblfJDxuA7gqE8hLS2biKN2u+ovY7r1q7ggZEybFYVPiJHJ9DDmdeZShXxyaJZRtUpVKz7LbdezDiXncp/9/lE97fiMkV+XwxRfAiibFqxAs6JzIgFcsHL6i0ierIkTFYkC8GL8hdF+N1bQs5HrpFAnSqkQzDNE1kJf70KPkAuJiB8e3+4KNv1AGcE8/u6WgLS9XwZ+ln4iP6bDk4pxKyFn8bWF034iNxHAd1CGpUvKsc7mdbJYwq/AC9lzMcEdJE1ufX6jIQvDA87XXxQHKQigM6DiK/Ja9UBKg2lOuWdz1D4mfb6MJoOTN+wZXph6+wC9AhdCwUrV0M6y9KRymdkyMvWkzUbfyhyrpfCR+T2Y9EqIWFmgQ6ydGzvMxnyKlRCez45tArmSHk79Bgd+QDdCnV3ou5VyndN8Jiv1gCy0gBjvLJr4YKbt0GP0d1RgEZlWQSPlOqRZHBePSQprnhTwbsGcZcK3xyb2AwFQL4/EpXKfirkyULwyplExXUYTZAEc0a1sv3gZbdsg4IgGwJ0/CAV82VkMnSu9+B3/tTT2bq80ZW5gE6rzUzwypkGB9JRgCP8IUV1aI8KALQWy+YhfLspf3NYvyP3ySDtstqTK1llSp29ryElAP52ngEjkCfSBVuyzpjMThyFb1b0OaQmAH9UOQ/wfjVEWg6yCyyxioRhN7Ixf0WGXANk5QN0oFe1iqaO2zPShhrA+/VMfNuGDsK9O00vb9UD+Quf14b7ihmzWO/UygNSApilEfctGyyh8rZOoDtSiBRK0RYPzfoSWJUqfHLb/DSsY0gJYFXG53A41Fw9CHkhldABOhK8UPj0XlH9W+WxuQe2HdbT2bq8ITcBhrXdLI3SHrEIjq3whXMFpIkJMAunbFsEvMdmbRHK1SnM3fPZuryhFOb89I/nH1td2nc8/p5+eXTafQGTaVVAFR1ahUwqURG8Q30dfMUc3tvo5JG77rti4gRY51DycjaMw2a7MXV/ozZ/fKNONWKdoRUzkXKHVWKB2FugdH0S/LXw8tjMLrvRKMRsXd7Qmuj45A9e3EZ7yHl0982QE1LxiCF4d1df+HOV8entD2w7chsMCNb1TNcQcqz/ge4QQgwJMOAYEmDAMSTAgGNIgAHHkAADjiEBBhz/BwAA//+JKD2kAAAABklEQVQDAKcf0bbLhUx4AAAAAElFTkSuQmCC">
+      <!--?lit$790478298$-->
+    </div>
+
+    <!-- This needs to be separate from the source-indicator since it can't
+     be contained inside of a position:relative parent element. -->
+    <!--?lit$790478298$-->
+    <div id="content">
+      <!--Note: We wrap inspect-views in a div so that the outer div
+          doesn't shrink (because it's not display: flex).-->
+      <div>
+        <div id="name-and-version" class="layout-horizontal-center">
+          <div id="name" role="heading" aria-level="3" class="clippable-flex-text">
+            <!--?lit$790478298$-->Google Docs Offline
+          </div>
+          <span id="version" class="cr-secondary-text">
+            <!--?lit$790478298$-->1.96.1
+          </span>
+        </div>
+      </div>
+      <div id="description" class="cr-secondary-text multiline-clippable-text">
+        <!--?lit$790478298$-->Edit, create and view your documents, spreadsheets and presentations – all without Internet access.
+      </div>
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+      <!--?lit$790478298$-->
+        <div id="extension-id" class="bounded-text cr-secondary-text">
+          <!--?lit$790478298$-->ID: ghbmnnjooekpmoecnnnilnnbdlolhkhi
+        </div>
+        <!--?lit$790478298$--><!--?-->
+    </div>
+  </div>
+  <div id="button-strip" class="layout-horizontal-center cr-secondary-text">
+    <div class="layout-horizontal-center flex">
+      <cr-button id="detailsButton" aria-describedby="a11yAssociation" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div></template>
+        Details
+      </cr-button>
+      <cr-button id="removeButton" aria-describedby="a11yAssociation" role="button" tabindex="0" aria-disabled="false"><template shadowrootmode="open"><!---->
+<div id="background"></div>
+<slot id="prefixIcon" name="prefix-icon">
+</slot>
+<span id="content"><slot></slot></span>
+<slot id="suffixIcon" name="suffix-icon">
+</slot>
+<div id="hoverBackground" part="hoverBackground"></div></template>
+        Remove
+      </cr-button>
+      <!--?lit$790478298$-->
+    </div>
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <!--?lit$790478298$-->
+    <cr-tooltip-icon id="parentDisabledPermissionsToolTip" tooltip-text="Your parent has disabled extension permissions" icon-class="cr20:kite" icon-aria-label="Your parent has disabled extension permissions" hidden=""><template shadowrootmode="open"><!---->
+<cr-icon id="indicator" tabindex="0" aria-describedby="tooltip" role="img" aria-label="Your parent has disabled extension permissions" icon="cr20:kite"><template shadowrootmode="open"><svg id="baseSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;" viewBox="0 0 20 20" class="cr-iconset-svg-icon_">
+ <g>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.6327 8.00094L10.3199 2L16 8.00094L10.1848 16.8673C10.0995 16.9873 10.0071 17.1074 9.90047 17.2199C9.42417 17.7225 8.79147 18 8.11611 18C7.44076 18 6.80806 17.7225 6.33175 17.2199C5.85545 16.7173 5.59242 16.0497 5.59242 15.3371C5.59242 14.977 5.46445 14.647 5.22275 14.3919C4.98104 14.1369 4.66825 14.0019 4.32701 14.0019H4V12.6667H4.32701C5.00237 12.6667 5.63507 12.9442 6.11137 13.4468C6.58768 13.9494 6.85071 14.617 6.85071 15.3296C6.85071 15.6896 6.97867 16.0197 7.22038 16.2747C7.46209 16.5298 7.77488 16.6648 8.11611 16.6648C8.45735 16.6648 8.77014 16.5223 9.01185 16.2747C9.02396 16.2601 9.03607 16.246 9.04808 16.2319C9.08541 16.1883 9.12176 16.1458 9.15403 16.0947L9.55213 15.4946L4.6327 8.00094ZM10.3199 13.9371L6.53802 8.17116L10.3199 4.1814L14.0963 8.17103L10.3199 13.9371Z">
+        </path>
+      </g></svg><!----></template>
+</cr-icon>
+<cr-tooltip id="tooltip" for="indicator" fit-to-visible-bounds="" part="tooltip" position="top" style="--paper-tooltip-delay-in: 500ms; --cr-tooltip-offset: 14px;"><template shadowrootmode="open"><!---->
+    <div id="tooltip" hidden="" part="tooltip">
+      <slot></slot>
+    </div>
+    <div id="tooltipOffsetFiller"></div></template>
+  <slot name="tooltip-text"><!--?lit$790478298$-->Your parent has disabled extension permissions</slot>
+</cr-tooltip></template>
+    </cr-tooltip-icon>
+    <cr-tooltip id="enable-toggle-tooltip" for="enableToggle" aria-hidden="true" animation-delay="0" fit-to-visible-bounds="" position="left" style="--paper-tooltip-delay-in: 0ms; --cr-tooltip-offset: 14px;"><template shadowrootmode="open"><!---->
+    <div id="tooltip" hidden="" part="tooltip">
+      <slot></slot>
+    </div>
+    <div id="tooltipOffsetFiller"></div></template>
+      <!--?lit$790478298$-->This extension cannot read and change site information or run in the background
+    </cr-tooltip>
+    <cr-toggle id="enableToggle" aria-describedby="a11yAssociation enable-toggle-tooltip" aria-label="Off" role="button" tabindex="0" aria-pressed="false" aria-disabled="false"><template shadowrootmode="open"><!---->
+<span id="bar"></span>
+<span id="knob"></span></template>
+    </cr-toggle>
+  </div>
+</div>
+<!--_html_template_end_--></template>
+          </extensions-item><!---->
+      </div>
+    </div>
+
+    <div id="chrome-apps-section" hidden="">
+      <!-- section-header needs to left-align with the grid content below, and
+           the easiest way to achieve this is to make it a grid as well. -->
+      <h2 class="section-header items-container">Chrome Apps</h2>
+      <div class="items-container">
+        <!--?lit$790478298$-->
+      </div>
+    </div>
+  </div>
+</div>
+<!--_html_template_end_--></template>
+    </extensions-item-list>
+    <cr-lazy-render-lit id="details-view"><template shadowrootmode="open"><!----><!--?--></template>
+    </cr-lazy-render-lit>
+    <cr-lazy-render-lit id="activity-log"><template shadowrootmode="open"><!----><!--?--></template>
+    </cr-lazy-render-lit>
+    <cr-lazy-render-lit id="site-permissions"><template shadowrootmode="open"><!----><!--?--></template>
+    </cr-lazy-render-lit>
+    <cr-lazy-render-lit id="site-permissions-by-site"><template shadowrootmode="open"><!----><!--?--></template>
+    </cr-lazy-render-lit>
+    <cr-lazy-render-lit id="keyboard-shortcuts"><template shadowrootmode="open"><!----><!--?--></template>
+    </cr-lazy-render-lit>
+    <cr-lazy-render-lit id="error-page"><template shadowrootmode="open"><!----><!--?--></template>
+    </cr-lazy-render-lit>
+  </cr-view-manager>
+  <div id="right"></div>
+<div></div></div>
+<!--?lit$790478298$-->
+<!--?lit$790478298$-->
+<!--?lit$790478298$-->
+<cr-toast-manager><template shadowrootmode="open"><!---->
+<cr-toast id="toast" role="alert"><template shadowrootmode="open"><!----><slot></slot></template>
+  <div id="content" class="elided-text">Extension loaded</div>
+  <slot id="slotted"></slot>
+</cr-toast></template></cr-toast-manager>
+<!--_html_template_end_--></template></extensions-manager>
+  <link rel="stylesheet" href="chrome://resources/css/text_defaults_md.css">
+
+
+</body></html>
