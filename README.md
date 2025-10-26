@@ -10,7 +10,7 @@ The system is built on a modern, scalable, serverless architecture using AWS ser
 
 The ConsentChain system has two main components: the **Browser Extension** for capturing consent, and the **Web Dashboard** for viewing and managing logs.
 
-### 1. Web Dashboard (Live URL: [https://d2q9vn5dgx10z1.cloudfront.net])
+### 1. Web Dashboard (Live URL: [https://d2q9vn5dgx10z1.cloudfront.net/])
 
 The dashboard is your personal data privacy center.
 
